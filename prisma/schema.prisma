@@ -37,6 +37,10 @@ model User {
   inn                    BigInt?
   admin                  Boolean?  @default(false)
   stream                 Json?
+  has_grant              Boolean?  @default(false)
+  grant_duration         Int?      @db.SmallInt
+  grant_review           Boolean?  @default(false)
+  grant_end              DateTime? @db.Timestamptz(6)
 }
 
 model Subscribe {
@@ -185,4 +189,12 @@ model Report {
   artist    String?
   cover     String?
   upc       String?
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Grant {
+  id          BigInt   @id(map: "grant_pkey") @default(autoincrement())
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  application String?  @default("null")
+  user_id     BigInt?
 }
