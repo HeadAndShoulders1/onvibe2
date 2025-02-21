@@ -114,6 +114,22 @@ export default function AdminTool() {
                     <div className="flex flex-col gap-y-4 justify-between h-full">
                         <div className="flex h-full items-center">
                             <div className="flex gap-x-3 items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24" fill="none" stroke="#00e1ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-ticket"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+                                <div className="flex flex-col">
+                                    <span className="text-zinc-800 dark:text-slate-50 font-semibold text-lg">{t('grant_applications')}</span>
+                                    <span className="text-zinc-700 dark:text-slate-400 text-sm">{t('grant_desc')}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <Link href="/admin/dashboard/tool/grants" className="text-sm justify-center inline-flex rounded-md items-center  px-2 py-1 font-medium text-[#FFF] ring-1 ring-inset bg-indigo-600 gap-x-2 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ">
+                            {t('check')}
+                        </Link>
+                    </div>
+                </div>
+                <div className="bg-[#fff] dark:bg-zinc-900 rounded-2xl p-4 border border-slate-300 dark:border-zinc-800 shadow-sm">
+                    <div className="flex flex-col gap-y-4 justify-between h-full">
+                        <div className="flex h-full items-center">
+                            <div className="flex gap-x-3 items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24">
                                     <g id="analysis">
                                         <polyline className="stroke-emerald-500 fill-none" strokeWidth="2" points="3.96 14.04 9 9 15 15 23 7" />

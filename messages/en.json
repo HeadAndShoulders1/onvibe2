@@ -315,7 +315,29 @@
     "subscribe": "Subscriptions",
     "buy_subscribe_2": "Purchase Professional Subscription",
     "buy_subscribe_3": "Purchase Premium Subscription",
-    "subscribe_not_found": "Subscriptions not found"
+    "subscribe_not_found": "Subscriptions not found",
+    "grant_tile": "Subscription grant",
+    "information": "Information",
+    "application": "Grant application",
+    "consideration": "Consideration",
+    "receiving_grant": "Receiving a grant",
+    "current_stage": "Сurrent stage",
+    "apply": "Apply",
+    "desc": "You will have the opportunity to receive a grant from ONVIBE and use our services completely free of charge, to do this, apply, we will evaluate your material and catalog performance.",
+    "applied": "You've already applied",
+    "not_grant": "You do not have a grant yet. Apply below and we'll be sure to contact you if you pass, and if you don't, the application will reset to zero.",
+    "applied_grant": "You have successfully submitted your application! Our moderators will review it soon, expect it.",
+    "status": "Grant Status:",
+    "active": "Active",
+    "grant_desc": "Information on the availability of the grant",
+    "expiration": "Expiration date:",
+    "expiration_desc": "How many months the grant was for",
+    "month1": "month",
+    "month2": "months",
+    "month3": "months",
+    "apply_grant": "Apply for a grant",
+    "placeholder": "Describe your work, list accomplishments, provide links to musician cards and social media.",
+    "applying": "Applying..."
   },
   "license": {
     "title": "License agreement",
@@ -781,7 +803,9 @@
     "create_report": "Create report",
     "upload": "Upload",
     "summary_information": "Summary information",
-    "total_earned": "Total earned"
+    "total_earned": "Total earned",
+    "grant_applications": "Grant applications",
+    "grant_desc": "Approve or reject a grant application"
   },
   "generator": {
     "title": "Promotion",
