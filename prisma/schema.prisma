@@ -1,0 +1,188 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                     Int       @id @default(autoincrement())
+  createdAt              DateTime? @default(now()) @map("created_at")
+  updatedAt              DateTime? @updatedAt @map("updated_at")
+  username               String    @unique
+  email                  String    @unique
+  passwordHash           String
+  email_auth             Boolean?  @default(false)
+  email_code             String?
+  message_status         String?   @default("read")
+  license_status         String?   @default("Not fill")
+  last_name              String?
+  first_name             String?
+  middle_name            String?
+  place_of_birth         String?
+  passport_received_by   String?
+  passport_office_id     String?
+  registration_address   String?
+  bank_name              String?
+  balance                Int?      @default(0)
+  date_birth             DateTime?
+  number_phone           String?
+  passport_serial_number Int?
+  passport_number_number Int?
+  signature              String?
+  passport_date_received DateTime?
+  bank_account_number    BigInt?
+  inn                    BigInt?
+  admin                  Boolean?  @default(false)
+  stream                 Json?
+}
+
+model Subscribe {
+  id           Int       @id @default(autoincrement())
+  id_subscribe Int?
+  startDate    DateTime? @default(now())
+  endDate      DateTime
+  UserID       Int?
+  amount       Int?
+}
+
+model Promo {
+  id                Int     @id @default(autoincrement())
+  releaseID         Int?
+  General_text      String?
+  playlists         String?
+  key_facts         String?
+  release_promotion String?
+}
+
+model Release {
+  id               Int       @id @default(autoincrement())
+  createdAt        DateTime? @default(now()) @map("created_at")
+  updatedAt        DateTime? @updatedAt @map("updated_at")
+  title            String?
+  version          String?
+  cover_path       String?
+  cover_small_path String?
+  meta_language    String?
+  error            String[]
+  type             String?
+  artist           String[]
+  featartist       String[]
+  date_release     DateTime?
+  genre            String?
+  p_line           String?
+  owner            Int?
+  upc              String?
+  fio              String?
+  status           String?
+  promo_prosent    Int?
+  promo_send       Boolean?  @default(false)
+}
+
+model Tracks {
+  id              Int       @id @default(autoincrement())
+  createdAt       DateTime? @default(now()) @map("created_at")
+  updatedAt       DateTime? @updatedAt @map("updated_at")
+  order           Int?
+  title           String?
+  version         String?
+  artist          String[]
+  featartist      String[]
+  genre           String?
+  isrc            String?
+  is_instrumental Boolean?
+  is_curse        Boolean?
+  track_wav       String?
+  track_mp3       String?
+  releaseId       Int?
+  owner           Int?
+}
+
+model Smartlinks {
+  id         Int       @id @default(autoincrement())
+  createdAt  DateTime? @default(now()) @map("created_at")
+  updatedAt  DateTime? @updatedAt @map("updated_at")
+  title      String?
+  version    String?
+  artist     String[]
+  featartist String[]
+  url        String?   @unique
+  cover      String?
+  owner      Int?
+  upc        String?
+}
+
+model SmartlinksURL {
+  id          Int       @id @default(autoincrement())
+  createdAt   DateTime? @default(now()) @map("created_at")
+  updatedAt   DateTime? @updatedAt @map("updated_at")
+  platform    String?
+  url         String?
+  cover       String?
+  smartlinkID Int?
+}
+
+model Answer {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime? @default(now()) @map("created_at")
+  name      String?
+  title     String?
+  status    String?
+  owner     Int?
+}
+
+model Snippet {
+  id         Int       @id @default(autoincrement())
+  createdAt  DateTime? @default(now()) @map("created_at")
+  title      String?
+  version    String?
+  artist     String[]
+  featartist String[]
+  url        String?
+  cover      String?
+  owner      Int?
+}
+
+model Payment {
+  id         Int       @id @default(autoincrement())
+  createdAt  DateTime? @default(now()) @map("created_at")
+  amount     Int?
+  status     String?
+  UserID     Int?
+  id_payment String?
+  promocode  String?
+}
+
+model News {
+  id        BigInt   @id(map: "Nes_pkey") @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  text      String?
+  photo_url String?
+}
+
+model Promocodes {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime? @default(now()) @map("created_at")
+  name      String?
+  UserID    Int?
+}
+
+model PromocodesAction {
+  id          Int       @id @default(autoincrement())
+  createdAt   DateTime? @default(now()) @map("created_at")
+  amount      Int?
+  status      String?
+  IdPromocode Int
+}
+
+model Report {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime? @default(now()) @map("created_at")
+  amount    Int?
+  title     String?
+  artist    String?
+  cover     String?
+  upc       String?
+}
