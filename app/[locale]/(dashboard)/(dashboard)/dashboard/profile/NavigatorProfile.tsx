@@ -4,7 +4,7 @@ import NavLink from "next/link";
 export default function NavigatorProfile() {
     const t = useTranslations('profile')
     return (
-        <div className="flex  gap-x-4 overflow-y-auto mt-5">
+        <div className="grid sm:grid-cols-3 gap-x-4  gap-1 overflow-y-auto mt-5">
             <NavLink href="/dashboard/profile" className='flex gap-x-2 items-center px-3 py-2 transition hover:bg-brand-600/5 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 hover'>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" version="1.1">
@@ -30,6 +30,12 @@ export default function NavigatorProfile() {
                     </svg>
                 </div>
                 <div className='text-base font-semibold text-zinc-800 dark:text-slate-200'>{t('license')}</div>
+            </NavLink>
+            <NavLink href="/dashboard/profile/grant" className='flex gap-x-2 px-3 py-2 items-center transition hover:bg-brand-600/5 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 hover'>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="2em" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="stroke-black dark:stroke-gray-200"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+                </div>
+                <div className='text-base font-semibold text-zinc-800 dark:text-slate-200'>{t('grant_tile')}</div>
             </NavLink>
         </div>
     )
