@@ -18,7 +18,7 @@ export async function POST(request: Request) {
       }
     });
 
-    if (userdata?.admin == true) {
+    if (userdata?.admin == true && userdata?.editor == false) {
       const { name, skip, take, status, page } = await request.json();
 
       const totalReleasesCount = await prisma.user.count({

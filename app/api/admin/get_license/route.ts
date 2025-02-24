@@ -19,7 +19,8 @@ export async function GET(request: Request) {
     });
     if (userdata) {
       const { admin } = userdata;
-      if (admin == true) {
+      const { editor } = userdata;
+      if (admin == true && editor == false ) {
         const userdata = await prisma.user.findMany({
           where: {
             license_status: 'Moderate'

@@ -41,6 +41,7 @@ model User {
   grant_duration         Int?      @db.SmallInt
   grant_review           Boolean?  @default(false)
   grant_end              DateTime? @db.Timestamptz(6)
+  editor                 Boolean?  @default(false)
 }
 
 model Subscribe {

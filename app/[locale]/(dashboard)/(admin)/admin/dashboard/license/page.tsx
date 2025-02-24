@@ -17,20 +17,39 @@ async function getData() {
     return res.json()
 }
 
+async function getEditor() {
+    const res = await fetch(`/api/user/isEditor`);
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+
+    return res.json()
+}
+
+type Admin = {
+    admin: boolean;
+};
+
+type Editor = {
+    admin: boolean;
+};
+
 export default function AdminLicense() {
     const t = useTranslations('admin_license')
     const router = useRouter()
     let [admin, setAdmin] = useState<Admin | null>(null);
-    type Admin = {
-        admin: boolean;
-    };
+    let [editor, setEditor] = useState<Editor | null>(null);
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await getData();
+                const data_editor = await getEditor();
                 setAdmin(data);
+                setEditor(data_editor);
 
-                if (data?.admin === false) {
+                if (data?.admin === false && data_editor?.editor === false || data?.admin === true && data_editor?.editor === true) {
                     router.push('/dashboard/catalog');
                 } else {
                     fetchLicenseData();
