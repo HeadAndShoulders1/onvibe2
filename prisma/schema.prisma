@@ -199,3 +199,13 @@ model Grant {
   application String?  @default("null")
   user_id     BigInt?
 }
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Withdrawal {
+  id          BigInt   @id(map: "withdrawal_pkey") @default(autoincrement())
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  card_number BigInt?
+  amount      BigInt?
+  user_id     BigInt?
+  status      String?
+}
