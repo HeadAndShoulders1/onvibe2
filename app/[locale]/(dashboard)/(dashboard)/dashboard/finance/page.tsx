@@ -1,4 +1,6 @@
 "use client"
+import Withdrawal from "@/components/finance/withdrawal"
+import WithdrawalHistory from "@/components/finance/WithdrawalHistoryModal"
 import BigSpinnerLoading from "@/components/Spinner/bigspinner"
 import SpinnerLoading from "@/components/Spinner/page"
 import { useTranslations } from "next-intl"
@@ -24,16 +26,20 @@ export default function Finance() {
             <head>
                 <title>{md('finance')}</title>
             </head>
-            <span className="text-3xl text-gray-700 font-bold dark:text-slate-200">{t('title')}</span>
-            <div className="flex bg-[#fff] dark:bg-zinc-900 rounded-xl border border-slate-300 dark:border-zinc-800 px-4 py-3 shadow-sm w-full lg:max-w-md mt-4">
-                <div className="flex flex-col gap-y-4 w-full">
-                    <span className="text-xl text-zinc-800 dark:text-slate-200 font-semibold">{t('balance')}</span>
-                    {loading ? <BigSpinnerLoading /> : (
-                        <span className="text-zinc-800 dark:text-slate-200 font-medium text-4xl">{FinanceData.all_amount / 100} ₽</span>
-                    )}
-                </div>
-
-            </div >
+                <span className="text-3xl text-gray-700 font-bold dark:text-slate-200">{t('title')}</span>
+                <div className="flex bg-[#fff] dark:bg-zinc-900 rounded-xl border border-slate-300 dark:border-zinc-800 px-4 py-3 shadow-sm w-full  mt-4 ">
+                        <div className="flex flex-col gap-y-4 w-full">
+                            <span className="text-xl text-zinc-800 dark:text-slate-200 font-semibold">{t('balance')}</span>
+                            {loading ? <BigSpinnerLoading /> : (
+                                <span className="text-zinc-800 dark:text-slate-200 font-medium text-4xl">{FinanceData.all_amount / 100} ₽</span>
+                            )}
+                        </div>
+                        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 w-[50%]">
+                            <Withdrawal />
+                            <WithdrawalHistory/>
+                        </div>
+                    </div>
+                
 
             <div className="flex bg-[#fff] dark:bg-zinc-900 mt-3 rounded-xl border border-slate-300 dark:border-zinc-800 p-4 shadow-sm">
                 <div className="grid gap-y-4 w-full">
