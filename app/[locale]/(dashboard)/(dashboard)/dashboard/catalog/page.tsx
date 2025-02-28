@@ -210,11 +210,7 @@ export default function Header() {
       <div>
         <span className="text-3xl text-zinc-800 font-bold dark:text-slate-200">{t('catalog_title')}</span>
         <div className="flex flex-col lg:items-center gap-2 mt-4 lg:flex-row lg:justify-between ">
-<<<<<<< HEAD
           <div className="flex p-2 h-12 bg-[#fbfdff] dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 w-full items-center shadow-sm">
-=======
-          <div className="flex p-2 h-12 bg-[#fff] dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 w-full items-center shadow-sm">
->>>>>>> e65b460f45a8d35f53ee69e5a7bf74bf1ec8e09a
             <div className="flex gap-x-2 w-full">
               <div className="w-20 flex justify-center border-r-2 border-slate-300 dark:border-zinc-800">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none">
@@ -231,11 +227,7 @@ export default function Header() {
               />
             </div>
           </div>
-<<<<<<< HEAD
           <div className="flex p-2 bg-[#fbfdff] h-12 text-zinc-800 dark:text-slate-200 text-base dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 w-full lg:w-fit items-center shadow-sm">
-=======
-          <div className="flex p-2 bg-[#fff] h-12 text-zinc-800 dark:text-slate-200 text-base dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 w-full lg:w-fit items-center shadow-sm">
->>>>>>> e65b460f45a8d35f53ee69e5a7bf74bf1ec8e09a
             <Listbox onChange={onFilter}>
               <div className="relative flex flex-col gap-y-2 w-full lg:w-fit">
                 <Listbox.Button className="flex lg:w-64 w-full justify-between outline-none whitespace-nowrap text-base rounded-xl text-left p-2">
@@ -251,20 +243,12 @@ export default function Header() {
                   leaveFrom="transform scale-100 opacity-100"
                   leaveTo="transform scale-95 opacity-0"
                 >
-<<<<<<< HEAD
                   <Listbox.Options className="absolute z-20 mt-12 max-h-60 w-full overflow-auto rounded-xl bg-[#ecf4ff] lg:w-fit  dark:bg-zinc-900 text-base shadow-lg ring-1 text-left  ring-black ring-opacity-5 focus:outline-none sm:text-sm ">
-=======
-                  <Listbox.Options className="absolute z-20 mt-12 max-h-60 w-full overflow-auto rounded-xl bg-white lg:w-fit  dark:bg-zinc-900 text-base shadow-lg ring-1 text-left  ring-black ring-opacity-5 focus:outline-none sm:text-sm ">
->>>>>>> e65b460f45a8d35f53ee69e5a7bf74bf1ec8e09a
                     {genre.map((person, personIdx) => (
                       <Listbox.Option
                         key={personIdx}
                         className={({ active }) =>
-<<<<<<< HEAD
                           `relative cursor-default select-none py-2  hover:bg-gray-200 dark:hover:bg-zinc-800 hover`
-=======
-                          `relative cursor-default select-none py-2 hover:bg-gray-200 dark:hover:bg-zinc-800 hover`
->>>>>>> e65b460f45a8d35f53ee69e5a7bf74bf1ec8e09a
                         }
                         value={person}
                       >
@@ -298,11 +282,7 @@ export default function Header() {
         ) : (
           <div className="flex flex-col gap-y-4 mt-4">
             {release_info ? release_info.map((item) => (
-<<<<<<< HEAD
               <div className="flex flex-col bg-[#f6faff] dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 shadow-sm" key={item.id}>
-=======
-              <div className="flex flex-col bg-[#fff] dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 shadow-sm" key={item.id}>
->>>>>>> e65b460f45a8d35f53ee69e5a7bf74bf1ec8e09a
                 <div className="flex border-b border-slate-300 dark:border-zinc-800">
                   <div className="flex w-full flex-col lg:flex-row p-4 gap-y-4">
                     <div className="">
