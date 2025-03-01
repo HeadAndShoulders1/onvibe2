@@ -64,6 +64,8 @@ export default function Header() {
         tracks: string;
         fio: string;
         type_subscribe: number;
+        text: string;
+        comment: string;
     }
     const formatDate = (date: Date) => {
         if (!(date instanceof Date)) {
@@ -304,6 +306,20 @@ export default function Header() {
         setUploadStatus('not_load')
     }
 
+
+    let [isOpenAdditional, setIsOpenAdditional] = useState(false)
+    function closeModalAdditional() {
+        setIsOpenAdditional(false)
+    }
+
+    function openModalAdditional(e: { currentTarget: { value: any; }; }) {
+        const value = e.currentTarget.value
+        setIsOpenAdditional(true)
+        setIdUpload(value)
+        setUploadStatus('not_load')
+    }
+
+
     const md = useTranslations('metadata')
     return (
 
@@ -467,6 +483,12 @@ export default function Header() {
                                                             <path d="M17 17H17.01M15.6 14H18C18.9319 14 19.3978 14 19.7654 14.1522C20.2554 14.3552 20.6448 14.7446 20.8478 15.2346C21 15.6022 21 16.0681 21 17C21 17.9319 21 18.3978 20.8478 18.7654C20.6448 19.2554 20.2554 19.6448 19.7654 19.8478C19.3978 20 18.9319 20 18 20H6C5.06812 20 4.60218 20 4.23463 19.8478C3.74458 19.6448 3.35523 19.2554 3.15224 18.7654C3 18.3978 3 17.9319 3 17C3 16.0681 3 15.6022 3.15224 15.2346C3.35523 14.7446 3.74458 14.3552 4.23463 14.1522C4.60218 14 5.06812 14 6 14H8.4M12 15V4M12 4L15 7M12 4L9 7" className="stroke-black dark:stroke-white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                                         </svg>
                                                         <div className='text-sm font-semibold text-zinc-800 dark:text-slate-200 whitespace-nowrap'>{t('uploading')}</div>
+                                                    </button>
+                                                </Menu.Item>
+                                                <Menu.Item>
+                                                    <button onClick={openModalAdditional} value={item.id} className="flex gap-x-2 justify-start items-center py-2 px-2 transition-all duration-75 hover:bg-brand-600/5 rounded hover:bg-gray-200 dark:hover:bg-zinc-800 hover w-full">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                                                        <div className='text-sm font-semibold text-zinc-800 dark:text-slate-200 whitespace-nowrap'>Доп. информация</div>
                                                     </button>
                                                 </Menu.Item>
                                             </Menu.Items>
@@ -642,6 +664,12 @@ export default function Header() {
                                                             <path d="M17 17H17.01M15.6 14H18C18.9319 14 19.3978 14 19.7654 14.1522C20.2554 14.3552 20.6448 14.7446 20.8478 15.2346C21 15.6022 21 16.0681 21 17C21 17.9319 21 18.3978 20.8478 18.7654C20.6448 19.2554 20.2554 19.6448 19.7654 19.8478C19.3978 20 18.9319 20 18 20H6C5.06812 20 4.60218 20 4.23463 19.8478C3.74458 19.6448 3.35523 19.2554 3.15224 18.7654C3 18.3978 3 17.9319 3 17C3 16.0681 3 15.6022 3.15224 15.2346C3.35523 14.7446 3.74458 14.3552 4.23463 14.1522C4.60218 14 5.06812 14 6 14H8.4M12 15V4M12 4L15 7M12 4L9 7" className="stroke-black dark:stroke-white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                                         </svg>
                                                         <div className='text-sm font-semibold text-zinc-800 dark:text-slate-200 whitespace-nowrap'>{t('uploading')}</div>
+                                                    </button>
+                                                </Menu.Item>
+                                                <Menu.Item>
+                                                    <button onClick={openModalAdditional} value={item.id} className="flex gap-x-2 justify-start items-center py-2 px-2 transition-all duration-75 hover:bg-brand-600/5 rounded hover:bg-gray-200 dark:hover:bg-zinc-800 hover w-full">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                                                        <div className='text-sm font-semibold text-zinc-800 dark:text-slate-200 whitespace-nowrap'>Доп. информация</div>
                                                     </button>
                                                 </Menu.Item>
                                             </Menu.Items>
@@ -1004,6 +1032,83 @@ export default function Header() {
                                                 </div>
                                             ) : null}
                                         </>
+                                    )}
+                                </Dialog.Panel>
+                            </Transition.Child>
+                        </div>
+                    </div>
+                </Dialog>
+            </Transition>
+            <Transition appear show={isOpenAdditional} as={Fragment}>
+                <Dialog as="div" className="relative z-50" onClose={closeModalAdditional}>
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                        <div className="fixed inset-0 bg-black/25" />
+                    </Transition.Child>
+
+                    <div className="fixed inset-0 overflow-y-auto">
+                        <div className="flex min-h-full items-center justify-center p-4 text-center">
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0 scale-95"
+                                enterTo="opacity-100 scale-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100 scale-100"
+                                leaveTo="opacity-0 scale-95"
+                            >
+                                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-zinc-900 text-left align-middle shadow-xl transition-all">
+                                    <div className="flex justify-between p-6 border-b border-slate-300 dark:border-zinc-800">
+                                        <div className="text-lg font-medium leading-6 text-zinc-800 dark:text-slate-200">
+                                            Информация
+                                        </div>
+                                    </div>
+                                    {loading ? (
+                                        <div className="p-20 w-full flex justify-center">
+                                            <BigSpinnerLoading />
+                                        </div>
+                                    ) : (
+                                        <>
+                                        {release_info.some((item) => item?.comment || item?.text) ? (
+                                            release_info.map((item, index) => (
+                                            <div className="flex flex-col w-full justify-center p-6 gap-y-6" key={index}>
+                                                <span className="text-lg font-medium leading-6 text-zinc-800 dark:text-slate-300 whitespace-pre-line">
+                                                Комментарий:
+                                                </span>
+                                                <span className="text-lg font-medium leading-6 text-zinc-800 dark:text-slate-500">
+                                                    {item?.comment || "N/A"}
+                                                </span>
+                                                <span className="text-lg font-medium leading-6 text-zinc-800 dark:text-slate-300">
+                                                Текст:
+                                                </span>
+                                                <span className="text-lg font-medium leading-6 text-zinc-800 dark:text-slate-500 whitespace-pre-line">
+                                                    {item?.text || "N/A"}
+                                                </span>
+                                            </div>
+                                            ))
+                                        ) : (
+                                            <div className="flex flex-col items-center w-full py-20 gap-y-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="6em" height="6em" viewBox="0 0 16 16">
+                                                <path
+                                                d="m 3 0 c -1.660156 0 -3 1.339844 -3 3 v 7 c 0 1.660156 1.339844 3 3 3 h 10 c 1.660156 0 3 -1.339844 3 -3 v -7 c 0 -1.660156 -1.339844 -3 -3 -3 z m 0 2 h 10 c 0.554688 0 1 0.445312 1 1 v 7 c 0 0.554688 -0.445312 1 -1 1 h -10 c -0.554688 0 -1 -0.445312 -1 -1 v -7 c 0 -0.554688 0.445312 -1 1 -1 z m 3 2 c -0.550781 0 -1 0.449219 -1 1 s 0.449219 1 1 1 s 1 -0.449219 1 -1 s -0.449219 -1 -1 -1 z m 4 0 c -0.550781 0 -1 0.449219 -1 1 s 0.449219 1 1 1 s 1 -0.449219 1 -1 s -0.449219 -1 -1 -1 z m -2 3 c -1.429688 0 -2.75 0.761719 -3.464844 2 c -0.136718 0.238281 -0.054687 0.546875 0.183594 0.683594 c 0.238281 0.136718 0.546875 0.054687 0.683594 -0.183594 c 0.535156 -0.929688 1.523437 -1.5 2.597656 -1.5 s 2.0625 0.570312 2.597656 1.5 c 0.136719 0.238281 0.445313 0.320312 0.683594 0.183594 c 0.238281 -0.136719 0.320312 -0.445313 0.183594 -0.683594 c -0.714844 -1.238281 -2.035156 -2 -3.464844 -2 z m -3 7 c -1.105469 0 -2 0.894531 -2 2 h 10 c 0 -1.105469 -0.894531 -2 -2 -2 z m 0 0"
+                                                className="fill-red-500"
+                                                />
+                                            </svg>
+                                            <span className="text-base font-semibold text-zinc-800 dark:text-slate-200">
+                                                Информация не найдена
+                                            </span>
+                                            </div>
+                                        )}
+                                        </>
+
+
                                     )}
                                 </Dialog.Panel>
                             </Transition.Child>

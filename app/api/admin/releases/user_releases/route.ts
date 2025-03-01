@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     });
 
     if (userdata?.admin == true) {
-      const { name, skip, take, status, page } = await request.json();
+      const { name, skip, take, status, page, comment, text } = await request.json();
 
       const totalReleasesCount = await prisma.release.count({
         where: {
@@ -99,6 +99,8 @@ export async function POST(request: Request) {
               fio: release.fio,
               status: release.status,
               upc: release.upc,
+              comment: release.comment,
+              text: release.text,
               type_subscribe: type_subscribe,
               tracks: tracks.map(track => ({
                 id: track.id,
@@ -134,6 +136,8 @@ export async function POST(request: Request) {
               fio: release.fio,
               status: release.status,
               upc: release.upc,
+              comment: release.comment,
+              text: release.text,
               type_subscribe: type_subscribe,
               tracks: tracks.map(track => ({
                 id: track.id,

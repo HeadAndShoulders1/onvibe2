@@ -4,6 +4,7 @@ import { Key, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ReleaseInfo from "./release";
+import EditReleaseForm2 from "./form";
 
 interface ApiError {
     track_id: string;
@@ -120,6 +121,9 @@ export default function EditRelease({ params }: { params: { id: string } }) {
             <ReleaseInfo params={{
                 id: params.id
             }} />
+            <EditReleaseForm2 params={{
+                id: params.id
+            }}/>
         </>
     )
 }

@@ -12,7 +12,7 @@ export async function POST(request: Request) {
       status: 401
     })
   } else {
-    const { id_release, title, version, meta_language, type, p_line, date_release, genre } = await request.json()
+    const { id_release, title, version, meta_language, type, p_line, date_release, genre, comment, text } = await request.json()
     const userEmail = <string>session.user?.email;
     const userdata = await prisma.user.findUnique({
       where: {
@@ -44,6 +44,8 @@ export async function POST(request: Request) {
           },
           data: {
             title: title,
+            comment: comment,
+            text: text,
             version: version,
             meta_language: meta_language,
             type: type,
@@ -62,6 +64,8 @@ export async function POST(request: Request) {
           title: info_release?.title,
           version: info_release?.version,
           type: info_release?.type,
+          comment: info_release?.comment,
+          text: info_release?.text,
           p_line: info_release?.p_line,
           meta_language: info_release?.meta_language,
           cover_small_path: info_release?.cover_small_path,

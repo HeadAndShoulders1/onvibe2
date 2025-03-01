@@ -41,6 +41,7 @@ model User {
   grant_duration         Int?      @db.SmallInt
   grant_review           Boolean?  @default(false)
   grant_end              DateTime? @db.Timestamptz(6)
+  editor                 Boolean?  @default(false)
 }
 
 model Subscribe {
@@ -83,6 +84,8 @@ model Release {
   status           String?
   promo_prosent    Int?
   promo_send       Boolean?  @default(false)
+  comment          String?
+  text             String?
 }
 
 model Tracks {
@@ -197,4 +200,14 @@ model Grant {
   created_at  DateTime @default(now()) @db.Timestamptz(6)
   application String?  @default("null")
   user_id     BigInt?
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Withdrawal {
+  id          BigInt   @id(map: "withdrawal_pkey") @default(autoincrement())
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  card_number BigInt?
+  amount      BigInt?
+  user_id     BigInt?
+  status      String?
 }
