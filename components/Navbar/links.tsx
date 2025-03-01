@@ -106,17 +106,17 @@ export default function Links() {
         admin: boolean;
     };
     useEffect(() => {
-        check_subscribe()
-        async function fetchData() {
+        const fetchData = async () => {
+            await check_subscribe();  // Сначала вызываем проверку подписки
             try {
-                const data = await getData();
+                const data = await getData();  // Получаем данные о администраторе
                 setAdmin(data);
             } catch (error) {
                 console.error(error);
             }
-        }
-
-        fetchData();
+        };
+    
+        fetchData();  // Вызов асинхронной функции внутри useEffect
     }, []);
     return (
         <div className="flex flex-col gap-y-5 w-full select-none ">
