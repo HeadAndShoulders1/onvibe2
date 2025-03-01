@@ -1078,7 +1078,14 @@ export default function Header() {
                                         <>
                                         {release_info.some((item) => item?.comment || item?.text) ? (
                                             release_info.map((item, index) => (
+                                            <>
                                             <div className="flex flex-col w-full justify-center p-6 gap-y-6" key={index}>
+                                                <span className="text-lg font-medium leading-6 text-zinc-800 dark:text-slate-300 whitespace-pre-line">
+                                                Название:
+                                                </span>
+                                                <span className="text-lg font-medium leading-6 text-zinc-800 dark:text-slate-500">
+                                                    {item?.title || "N/A"}
+                                                </span>
                                                 <span className="text-lg font-medium leading-6 text-zinc-800 dark:text-slate-300 whitespace-pre-line">
                                                 Комментарий:
                                                 </span>
@@ -1092,6 +1099,8 @@ export default function Header() {
                                                     {item?.text || "N/A"}
                                                 </span>
                                             </div>
+                                            <div className="w-full bg-[#545657] h-1"></div>
+                                            </>
                                             ))
                                         ) : (
                                             <div className="flex flex-col items-center w-full py-20 gap-y-4">
@@ -1107,8 +1116,6 @@ export default function Header() {
                                             </div>
                                         )}
                                         </>
-
-
                                     )}
                                 </Dialog.Panel>
                             </Transition.Child>
