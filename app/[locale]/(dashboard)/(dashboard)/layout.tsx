@@ -11,6 +11,9 @@ import { Metadata } from 'next';
 import YandexMetrikaContainer from '@/context/YandexMetrika';
 const inter = Poppins({ weight: '700', subsets: ['latin'], })
 
+
+
+
 export default async function DataFetch({ children }: {
   children: React.ReactNode
 }) {
@@ -23,11 +26,7 @@ export default async function DataFetch({ children }: {
     })
     if (user) {
       if (user.email_auth == true) {
-        if(user.admin===true){
-          return <DashboardLayout>{children}</DashboardLayout>
-        }else{
-          redirect('/dashboard/catalog')
-        }
+        return <DashboardLayout>{children}</DashboardLayout>
       } else {
         redirect('/auth/signin/auth_email')
       }
@@ -46,24 +45,25 @@ export const metadata: Metadata = {
 export function DashboardLayout({ children }: {
   children: any
 }) {
+  // Validate that the incoming `locale` parameter is valid 
   const locale = useLocale();
   const messages = useMessages();
 
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={inter.className}>
       <body className="h-full">
         <div className='_next'>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <div className='relative flex h-screen max-h-screen flex-col lg:overflow-y-hidden'>
               <NavbarDashboard />
-              <div className='flex relative dark:bg-[#141518] bg-[#f5fafc] h-full pt-16 lg:pt-0'>
+              <div className='flex relative dark:bg-[#141518] bg-white h-full pt-16 lg:pt-0'>
                 <Sidebar />
                 <div className='h-full w-full overflow-y-scroll px-4 py-8 pb-[200px] lg:px-8 2xl:px-16'>
                   <div className='w-full 2xl:w-11/12'>
                     {children}
                   </div>
-                  </div>
+                </div>
               </div>
             </div>
           </NextIntlClientProvider>
