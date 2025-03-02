@@ -110,7 +110,7 @@ export default function Withdrawal() {
                       </div>
                       <div className="flex flex-col gap-y-0">
                         <span className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">Вы получите:</span>
-                        <span className="text-lg text-center font-bold leading-6 text-zinc-700 dark:text-slate-50">{amount * 0.80} рублей</span>
+                        <span className="text-lg text-center font-bold leading-6 text-zinc-700 dark:text-slate-50">{amount * 0.83} рублей</span>
                       </div>
                     </div>
                   </div>
