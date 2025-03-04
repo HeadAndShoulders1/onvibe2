@@ -40,7 +40,7 @@ export default function Terms() {
                 </div>
                 <div className="flex flex-col gap-y-3">
                     <span className="dark:text-slate-100 font-bold text-xl">Реквизиты провайдера</span>
-                    <span className="dark:text-slate-200 text-base">Полное наименование: САМОЗАНЯТЫЙ Бекичев Кирилл Сергеевич ИНН: 262810847515 Контактный e-mail: onvibefun@gmail.com</span>
+                    <span className="dark:text-slate-200 text-base">Полное наименование: Индивидуальный предприниматель Бекичев Кирилл Сергеевич ИНН 262810847515, ОГРН 325265100031062, onvibefun@gmail.com, оказывающий Услуги в соответствии с настоящими Правилами, как самостоятельно, так и с привлечением любых третьих лиц.</span>
                 </div>
             </div>
         </div>
