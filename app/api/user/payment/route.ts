@@ -53,18 +53,7 @@ export async function POST(request: Request) {
         })
         const payment_amount = Number(amount) * 100
         const order_id = `order_${Date.now()}_${Math.floor(Math.random() * 1000)}`
-        let decodedPassword = '';
-        if (process.env.PAYMENT_PASSWORD) {
-          try {
-            // Декодируем base64 и явно указываем кодировку UTF-8
-            decodedPassword = Buffer.from(process.env.PAYMENT_PASSWORD, 'base64').toString('utf-8');
-          } catch (error) {
-            console.error('Error decoding PAYMENT_PASSWORD:', error);
-          }
-        } else {
-          console.error('PAYMENT_PASSWORD is not defined');
-        }
-        const token = payment_amount + "Пополнение баланса" + order_id + decodedPassword + process.env.PAYMENT_LOGIN
+        const token = payment_amount + "Пополнение баланса" + order_id + process.env.PAYMENT_PASSWORD + process.env.PAYMENT_LOGIN
         const tokenSha256 = createHash('sha256')
           .update(new TextEncoder().encode(token))
           .digest('hex');
