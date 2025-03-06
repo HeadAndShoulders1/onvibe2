@@ -53,7 +53,7 @@ export async function POST(request: Request) {
         })
         const payment_amount = Number(amount) * 100
         const order_id = `order_${Date.now()}_${Math.floor(Math.random() * 1000)}`
-        const token = payment_amount + "Пополнение баланса" + order_id + process.env.PAYMENT_PASSWORD + process.env.PAYMENT_LOGIN
+        const token = payment_amount + "Пополнение баланса" + order_id + "nDWgmVH^YpnC$fbD" + process.env.PAYMENT_LOGIN
         const tokenSha256 = createHash('sha256')
           .update(new TextEncoder().encode(token))
           .digest('hex');
