@@ -45,10 +45,11 @@ export async function GET(request: Request) {
             if (payment.id_payment != null && payment.status !== "succeeded" && payment.status !== "canceled" && payment.status !== "CONFIRMED" && payment.status !== "CANCELED") {
                 let decodedPassword = ''; 
                 if (process.env.PAYMENT_PASSWORD) {
-                decodedPassword = Buffer.from(process.env.PAYMENT_PASSWORD, 'base64').toString('utf-8');
-                } else {
-                console.error('PAYMENT_PASSWORD is not defined');
-                }
+                    // Декодируем base64 и корректируем с помощью decodeURIComponent
+                    decodedPassword = decodeURIComponent(Buffer.from(process.env.PAYMENT_PASSWORD, 'base64').toString('utf-8'));
+                  } else {
+                    console.error('PAYMENT_PASSWORD is not defined');
+                  }
                 const token = decodedPassword + payment.id_payment + process.env.PAYMENT_LOGIN;
                 const tokenSha256 = createHash('sha256')
                     .update(new TextEncoder().encode(token))
