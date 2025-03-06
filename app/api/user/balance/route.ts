@@ -45,8 +45,12 @@ export async function GET(request: Request) {
             if (payment.id_payment != null && payment.status !== "succeeded" && payment.status !== "canceled" && payment.status !== "CONFIRMED" && payment.status !== "CANCELED") {
                 let decodedPassword = ''; 
                 if (process.env.PAYMENT_PASSWORD) {
-                    // Декодируем base64 и корректируем с помощью decodeURIComponent
-                    decodedPassword = decodeURIComponent(Buffer.from(process.env.PAYMENT_PASSWORD, 'base64').toString('utf-8'));
+                    try {
+                      // Декодируем base64 и явно указываем кодировку UTF-8
+                      decodedPassword = Buffer.from(process.env.PAYMENT_PASSWORD, 'base64').toString('utf-8');
+                    } catch (error) {
+                      console.error('Error decoding PAYMENT_PASSWORD:', error);
+                    }
                   } else {
                     console.error('PAYMENT_PASSWORD is not defined');
                   }

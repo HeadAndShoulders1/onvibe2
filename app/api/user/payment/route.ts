@@ -55,7 +55,12 @@ export async function POST(request: Request) {
         const order_id = `order_${Date.now()}_${Math.floor(Math.random() * 1000)}`
         let decodedPassword = '';
         if (process.env.PAYMENT_PASSWORD) {
-          decodedPassword = decodeURIComponent(Buffer.from(process.env.PAYMENT_PASSWORD, 'base64').toString('utf-8'));
+          try {
+            // Декодируем base64 и явно указываем кодировку UTF-8
+            decodedPassword = Buffer.from(process.env.PAYMENT_PASSWORD, 'base64').toString('utf-8');
+          } catch (error) {
+            console.error('Error decoding PAYMENT_PASSWORD:', error);
+          }
         } else {
           console.error('PAYMENT_PASSWORD is not defined');
         }
