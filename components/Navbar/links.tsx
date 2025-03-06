@@ -47,7 +47,7 @@ export default function Links() {
         },
         {
             id: 2,
-            title: "Финансы",
+            title: t('finance'),
             name: [
                 {
                     id: 1,
@@ -60,6 +60,13 @@ export default function Links() {
                     title: t('subscribe'),
                     url: `/${locale}/dashboard/subscribe`,
                     svg: <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em" viewBox="0 0 24 24"><path className="dark:fill-slate-300 fill-slate-600" d="M12 0a2 2 0 0 0-1.81 1.15L7.556 6.758 1.7 7.642a2 2 0 0 0-1.13 3.374l4.3 4.408-1.02 6.235a2 2 0 0 0 2.94 2.073L12 20.86l5.216 2.89a2 2 0 0 0 2.942-2.073l-1.02-6.237 4.293-4.39a2 2 0 0 0-1.124-3.376l-5.857-.9-2.64-5.624A2 2 0 0 0 12 0z" /></svg>
+                }
+                ,
+                {
+                    id: 3,
+                    title: "Промо-коды",
+                    url: `/${locale}/dashboard/subscribe`,
+                    svg: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-tickets"><path d="m4.5 8 10.58-5.06a1 1 0 0 1 1.342.488L18.5 8"/><path d="M6 10V8"/><path d="M6 14v1"/><path d="M6 19v2"/><rect x="2" y="8" width="20" height="13" rx="2"/></svg>
                 }
             ]
         },
