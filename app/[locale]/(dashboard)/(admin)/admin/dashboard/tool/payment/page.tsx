@@ -45,14 +45,14 @@ export default function Payment() {
                                     <span className="text-zinc-600 dark:text-zinc-400 text-sm">{t('date')}:{item.createdAt ? formatDate(new Date(item.createdAt)) : "N/A"}</span>
                                 </div>
                             </div>
-                            {item.status === "canceled" ? (
+                            {item.status === "canceled" || item.status === "REJECTED" ? (
                                 <div className="dark:bg-red-400/10 bg-red-400/20 rounded-xl px-3 py-1 flex h-fit">
-                                    <span className="dark:text-red-400 text-red-500 font-medium text-xs">{t(item.status)}</span>
+                                    <span className="dark:text-red-400 text-red-500 font-medium text-xs">{t("canceled")}</span>
                                 </div>
                             ) : null}
-                            {item.status === "succeeded" ? (
+                            {item.status === "succeeded" || item.status === "CONFIRMED" ? (
                                 <div className="dark:bg-emerald-400/10 bg-emerald-400/20 rounded-xl px-3 py-1 flex h-fit">
-                                    <span className="dark:text-emerald-400 text-emerald-500 font-medium text-xs">{t(item.status)}</span>
+                                    <span className="dark:text-emerald-400 text-emerald-500 font-medium text-xs">{t("succeeded")}</span>
                                 </div>
                             ) : null}
                             {item.status === "pending" ? (

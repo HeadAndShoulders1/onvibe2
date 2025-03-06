@@ -1,8 +1,9 @@
 import { prisma } from "@/lib/prisma";
-import { getServerSession } from "next-auth"
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import axios from "axios";
+import { createHash } from "crypto";
 const YooKassa = require('yookassa');
 const yooKassa = new YooKassa({
     shopId: process.env.SHOP_ID,
@@ -10,92 +11,118 @@ const yooKassa = new YooKassa({
 });
 
 export async function GET(request: Request) {
-    const session = await getServerSession(authOptions)
+    try {
+        const session = await getServerSession(authOptions);
 
-    if (!session) {
-        return new NextResponse(JSON.stringify({ error: 'unauthorized' }), {
-            status: 401
-        })
-    } else {
+        if (!session) {
+            return new NextResponse(JSON.stringify({ error: 'unauthorized' }), {
+                status: 401
+            });
+        }
+
         const userEmail = <string>session.user?.email;
         const userdata = await prisma.user.findUnique({
             where: {
                 email: userEmail
             }
         });
-        if (userdata) {
-            const payments = await prisma.payment.findMany({
-                where: {
-                    UserID: userdata.id
-                }
-            })
-            let balance = 0
-            for (const payment of payments) {
-                if (payment.status != "succeeded" && payment.status != "canceled") {
-                    const response = await axios.get(`https://api.yookassa.ru/v3/payments/${payment.id_payment}`, {
-                        auth: {
-                            username: <string>process.env.SHOP_ID,
-                            password: <string>process.env.SHOP_SECRET_KEY
+
+        if (!userdata) {
+            return new NextResponse(JSON.stringify({ error: 'user not found' }), {
+                status: 404
+            });
+        }
+
+        const payments = await prisma.payment.findMany({
+            where: {
+                UserID: userdata.id
+            }
+        });
+
+        let balance = 0;
+
+        for (const payment of payments) {
+            if (payment.id_payment != null && payment.status !== "succeeded" && payment.status !== "canceled" && payment.status !== "CONFIRMED" && payment.status !== "CANCELED") {
+                const token = process.env.PAYMENT_PASSWORD + payment.id_payment + process.env.PAYMENT_LOGIN;
+                const tokenSha256 = createHash('sha256')
+                    .update(new TextEncoder().encode(token))
+                    .digest('hex');
+
+                const create_payment_tin = await axios.post(`https://securepay.tinkoff.ru/v2/GetState`, {
+                    "TerminalKey": process.env.PAYMENT_LOGIN,
+                    "PaymentId": parseInt(payment.id_payment, 10),
+                    "Token": tokenSha256,
+                });
+
+                const update_status = await prisma.payment.update({
+                    where: {
+                        id: payment.id
+                    },
+                    data: {
+                        status: create_payment_tin.data.Status
+                    }
+                });
+
+                if ((create_payment_tin.data.status === "succeeded" || payment.status != "CONFIRMED") && payment.promocode != null && update_status.amount) {
+                    const find_promocode = await prisma.promocodes.findFirst({
+                        where: {
+                            name: update_status.promocode
                         }
                     });
-                    const data = await response.data
-                    const update_payment = await prisma.payment.update({
-                        where: {
-                            id_payment: payment.id_payment,
-                            id: payment.id
-                        },
-                        data: {
-                            status: data.status
-                        }
-                    })
-                    if (data.status === "succeeded" && payment.promocode != null && update_payment.amount) {
-                        const find_promocode = await prisma.promocodes.findFirst({
-                            where: {
-                                name: update_payment.promocode
+
+                    if (find_promocode) {
+                        await prisma.promocodesAction.create({
+                            data: {
+                                amount: Math.floor(update_status.amount * 0.15),
+                                IdPromocode: find_promocode?.id,
+                                status: "paid"
                             }
-                        })
-                        if (find_promocode) {
-                            const create_promocode = await prisma.promocodesAction.create({
-                                data: {
-                                    amount: Math.floor(update_payment.amount * 0.15),
-                                    IdPromocode: find_promocode?.id,
-                                    status: "paid"
-                                }
-                            })
-                        }
+                        });
                     }
                 }
             }
-            const payment_success = await prisma.payment.findMany({
-                where: {
-                    UserID: userdata.id,
-                    status: "succeeded"
-                }
-            })
-            const subscribe_all = await prisma.subscribe.findMany({
-                where: {
-                    UserID: userdata.id
-                }
-            })
-            for (const payment of payment_success) {
-                if (payment.amount) {
-                    balance = payment.amount + balance
-                }
-            }
-            for (const subscribe of subscribe_all) {
-                if (subscribe.amount != null) {
-                    balance = balance - subscribe.amount
-                }
-            }
-            const update_balance_user = await prisma.user.update({
-                where: {
-                    id: userdata.id
-                },
-                data: {
-                    balance: balance
-                }
-            })
-            return NextResponse.json({ balance: update_balance_user.balance })
         }
+
+        const payment_success = await prisma.payment.findMany({
+            where: {
+                UserID: userdata.id,
+                status: { in: ["CONFIRMED", "succeeded"] }
+            }
+        });
+
+        const subscribe_all = await prisma.subscribe.findMany({
+            where: {
+                UserID: userdata.id
+            }
+        });
+
+        for (const payment of payment_success) {
+            if (payment.amount) {
+                balance = payment.amount + balance;
+            }
+        }
+
+        for (const subscribe of subscribe_all) {
+            if (subscribe.amount != null) {
+                balance = balance - subscribe.amount;
+            }
+        }
+
+        const update_balance_user = await prisma.user.update({
+            where: {
+                id: userdata.id
+            },
+            data: {
+                balance: balance
+            }
+        });
+
+        return NextResponse.json({ balance: update_balance_user.balance });
+
+    } catch (error) {
+        console.error('Error in GET function:', error);
+        return new NextResponse(JSON.stringify({ error: 'Internal Server Error' }), {
+            status: 500
+        });
     }
 }
