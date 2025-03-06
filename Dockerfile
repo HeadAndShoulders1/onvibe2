@@ -13,7 +13,7 @@ ENV NODE_OPTIONS='--no-warnings node app/api/releases/upload_cover/route.ts'
 ENV NODE_OPTIONS='--no-warnings node app/api/releases/track/add_track/route.ts'
 ENV FLUENTFFMPEG_COV='false'
 ENV PAYMENT_LOGIN="1741108391300"
-ENV PAYMENT_PASSWORD="nDWgmVH^YpnC\$fbD"
+ENV PAYMENT_PASSWORD='nDWgmVH^YpnC$fbD'
 ENV NAME_EMAIL="mail@onvibe.fun"
 ENV PASS_EMAIL="#3jbtSt_CXWr}d"
 
