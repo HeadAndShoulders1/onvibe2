@@ -43,7 +43,13 @@ export async function GET(request: Request) {
 
         for (const payment of payments) {
             if (payment.id_payment != null && payment.status !== "succeeded" && payment.status !== "canceled" && payment.status !== "CONFIRMED" && payment.status !== "CANCELED") {
-                const token = process.env.PAYMENT_PASSWORD + payment.id_payment + process.env.PAYMENT_LOGIN;
+                let decodedPassword = ''; 
+                if (process.env.PAYMENT_PASSWORD) {
+                decodedPassword = Buffer.from(process.env.PAYMENT_PASSWORD, 'base64').toString('utf-8');
+                } else {
+                console.error('PAYMENT_PASSWORD is not defined');
+                }
+                const token = decodedPassword + payment.id_payment + process.env.PAYMENT_LOGIN;
                 const tokenSha256 = createHash('sha256')
                     .update(new TextEncoder().encode(token))
                     .digest('hex');
