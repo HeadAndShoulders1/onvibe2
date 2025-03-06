@@ -1,10 +1,10 @@
 FROM node:20.5.0
 
 # Копируем файл с паролем в контейнер
-COPY payment_password.txt /app/payment_password.txt
+COPY payment_password.txt /payment_password.txt
 
 # Экспортируем переменную в систему
-RUN echo "export PAYMENT_PASSWORD=$(cat /app/payment_password.txt)" >> /etc/profile
+RUN echo "export PAYMENT_PASSWORD=$(cat /payment_password.txt)" >> /etc/profile
 
 # Остальные переменные окружения
 ENV DATABASE_URL="postgres://postgres.ytrzffiooifalbhvowoz:0a8bca9b1ad34aefb6e500bdfebe0d6d@aws-0-eu-central-1.pooler.supabase.com:5432/postgres?connect_timeout=300"
