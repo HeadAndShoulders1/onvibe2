@@ -120,7 +120,7 @@ export default function NavbarDashboard() {
         fetchData();
     }, []);
     return (
-        <div className="flex w-full lg:py-1 py-3 px-6 lg:relative fixed top-0 z-30  dark:bg-[#141518] bg-white border-b border-slate-300 dark:border-zinc-800 items-center">
+        <div className="flex w-full lg:py-1 py-3 px-6 lg:relative fixed top-0 z-30  dark:bg-[#141518] bg-[#f8fdff] border-b border-slate-300 dark:border-zinc-800 items-center">
             <div className="flex w-full lg:w-fit items-center justify-between lg:mr-4">
                 <div className="flex items-center">
                     <NavLink href="/" className="w-40 lg:w-full flex items-center">
@@ -141,6 +141,14 @@ export default function NavbarDashboard() {
             </div>
             <div className="justify-between lg:flex invisible lg:visible hidden w-full">
                 <div className="flex items-center">
+                    {TypeSubscribe === 4 ? (
+                        <div className="inline-flex items-center gap-x-2 rounded-xl bg-indigo-200/50 dark:bg-indigo-200 px-2 py-1 ">
+                            <div className="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-sparkles"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+                            </div>
+                            <div className="flex text-indigo-600 text-sm font-medium">{subs('subscribe_4')}</div>
+                        </div>
+                    ) : null}
                     {TypeSubscribe === 3 ? (
                         <div className="inline-flex items-center gap-x-2 rounded-xl bg-indigo-200/50 dark:bg-indigo-200 px-2 py-1 ">
                             <div className="flex">

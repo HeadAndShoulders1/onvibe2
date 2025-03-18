@@ -1,74 +1,44 @@
 import { useTranslations } from "next-intl";
-import AppleMusic from "@/public/platforms_images/apple_music";
-import Spotify from "@/public/platforms_images/spotify";
-import Vkontakte from "@/public/platforms_images/VK_black";
-import YandexMusic from "@/public/platforms_images/yandex_music_black";
-import YoutubeMusic from "@/public/platforms_images/youtubemusic_black";
-import TikTok from "@/public/platforms_images/tiktok";
-import Shazam from "@/public/platforms_images/shazam";
+import Image from 'next/image'
 
 export default function StoresOther() {
   const t = useTranslations('stores');
-
-  const stores = [
-    {
-      id: 1,
-      url_black: <Spotify />,
-      name: 'Spotify'
-    },
-    {
-      id: 2,
-      url_black: <AppleMusic />,
-      name: 'Apple Music'
-    },
-    {
-      id: 3,
-      url_black: <Vkontakte />,
-      name: 'VK'
-    },
-    {
-      id: 4,
-      url_black: <YandexMusic />,
-      name: 'Yandex Music'
-    },
-    {
-      id: 5,
-      url_black: <YoutubeMusic />,
-      name: "Youtube Music"
-    },
-    {
-      id: 6,
-      url_black: <TikTok />,
-      name: 'TikTok'
-    },
-    {
-      id: 7,
-      url_black: <Shazam />,
-      name: 'Shazam'
-    },
-  ]
+  const image_dark: any = []
+  for (let i = 1; i < 19; i++) {
+    image_dark.push({ id: i })
+  }
+  const image_light: any = []
+  for (let i = 1; i < 19; i++) {
+    image_light.push({ id: i })
+  }
   return (
     <div className='w-11/12 lg:w-11/12 2xl:w-10/12 mx-auto justify-center' data-aos="fade-up" data-aos-delay="100">
-      <h1 className="font-bold tracking-tight text-white-900 text-3xl lg:text-4xl  text-center dark:text-slate-200">
-        {t('main_stores')}
-      </h1>
-      <h1 className="tracking-tight text-slate-400 sm:text-1xl text-center py-3 dark:text-zinc-400">
-        {t('main_stores_detail')}
-      </h1>
-      <div className='flex w-full mx-auto justify-center my-10'>
-        <div className='grid gap-4 grid-cols-2 md:grid-cols-2 xl:grid-cols-4 justify-center'>
-          {stores.map((store) => (
-            <div className="flex mx-auto shadow-sm px-4 lg:px-16 py-4  rounded-3xl h-24 md:h-44 w-sm border border-slate-300 dark:border-zinc-800 lg:mx-0 lg:flex items-center justify-center scroll-smooth  bg-white dark:bg-zinc-900 transition-all duration-150 hover:-translate-y-4 ease-in" key={store.id} data-aos="fade-up" data-aos-delay="100">
-              <div className="relative w-full ">
-                {store.url_black}
+      <div className="flex justify-between lg:flex-row flex-col gap-2 lg:text-left text-center" data-aos="fade-bottom" data-aos-delay="100">
+        <span className="font-bold tracking-tight text-white-900 text-3xl lg:text-4xl  text-center dark:text-slate-200">
+          {t('main_stores')}
+        </span>
+        <span className="tracking-tight text-zinc-600 text-sm max-w-sm py-3 dark:text-zinc-400">
+          {t('main_stores_detail')}
+        </span>
+      </div>
+      <div className="flex border border-slate-300 dark:border-zinc-800 rounded-lg p-4 lg:p-12 lg:px-12 w-full tems-center justify-center transition select-none shadow-sm" data-aos="fade-top" data-aos-delay="100">
+        <div className="hidden w-full grid-cols-2 gap-4 lg:gap-20 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 dark:grid">
+          {image_dark.map((item: any, index: any) => (
+            <div className="relative h-14 flex justify-center items-center w-full" key={index}>
+              <div className="flex w-full h-fit hover:p-0 max-w-56 lg:p-4 p-4 transition-all justify-center items-center">
+                <Image src={`/platforms/${item.id}.svg`} width={800} height={800} className="" alt="/" />
               </div>
             </div>
           ))}
-          <div className="flex mx-auto shadow-sm px-4 lg:px-16 py-4  rounded-3xl h-24 md:h-44 w-full border border-slate-300 dark:border-zinc-800 lg:mx-0 lg:flex items-center justify-center scroll-smooth bg-white dark:bg-zinc-900 transition-all duration-150 hover:-translate-y-4 ease-in" data-aos="fade-up" data-aos-delay="100">
-            <div className="relative w-full">
-              <h3 className="text-sm font-semibold leading-6 text-zinc-800 text-center dark:text-slate-200 fill-black dark:fill-white">{t('more_stores')}</h3>
+        </div>
+        <div className="grid w-full grid-cols-2 gap-4 lg:gap-20 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 dark:hidden">
+          {image_light.map((item: any, index: any) => (
+            <div className="relative h-14 flex justify-center items-center w-full" key={index}>
+              <div className="flex w-full h-fit hover:p-0 max-w-56 lg:p-4 p-4 transition-all justify-center items-center">
+                <Image src={`/stores/${item.id}.webp`} width={800} height={800} className="" alt="/" />
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

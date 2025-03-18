@@ -44,6 +44,8 @@ export async function POST(request: Request) {
           genre: releaseData?.genre,
           comment: releaseData?.comment,
           text: releaseData?.text,
+          autor: releaseData?.autor,
+          autor_text: releaseData?.autor_text,
         }
         return NextResponse.json(info);
       } else {

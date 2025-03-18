@@ -5,7 +5,7 @@ const DarkModeToggle = () => {
     const { theme, setTheme } = useTheme()
 
     const toggleTheme = () => {
-        setTheme((currentTheme) => (currentTheme === 'light' ? 'dark' : 'light'));
+        setTheme((currentTheme: string) => (currentTheme === 'light' ? 'dark' : 'light'));
     };
 
     return (

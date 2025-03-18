@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl"
 
 export default function FAQ() {
-  const t = useTranslations('home')
+  const t = useTranslations('questions')
   const questions = [
     {
       id: 1,
@@ -36,17 +36,17 @@ export default function FAQ() {
   ]
   return (
     <div className='w-11/12 lg:w-11/12 2xl:w-10/12 mx-auto justify-center py-20'>
-      <h1 className="font-bold tracking-tight text-white-900 text-3xl lg:text-4xl  text-center dark:text-white">
+      <h1 className="font-semibold text-zinc-800 text-3xl lg:text-4xl text-center dark:text-slate-50">
         {t('frequently_asked_questions')}
       </h1>
       <div className='w-full mx-auto mt-10 justify-center'>
-        <div className='grid gap-12 lg:grid-cols-2 justify-center py-10'>
+        <div className='grid gap-12 lg:grid-cols-2 2xl:grid-cols-3 justify-center py-10'>
           {questions.map((question) => (
             <div className="flex flex-col gap-y-1" key={question.id} data-aos="fade-up" data-aos-delay="100">
-              <span className="font-bold tracking-tight text-white-900 sm:text-2xl text-left dark:text-slate-200">
+              <span className="font-medium text-zinc-800 sm:text-2xl text-left dark:text-slate-200">
                 {question.question}
               </span>
-              <span className="tracking-tight text-slate-400 sm:text-1xl text-left dark:text-zinc-400 py-3">
+              <span className="text-zinc-400 sm:text-base text-left dark:text-zinc-400">
                 {question.Answer}
               </span>
             </div>

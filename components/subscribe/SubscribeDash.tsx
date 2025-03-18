@@ -15,7 +15,7 @@ export default function SubscribeDash() {
         month: [
             {
                 id: 1,
-                title: t('subscribe_start'),
+                title: t('subscribe_standart'),
                 discript: t('subscribe_start_discript'),
                 price: "329",
                 type: "month_start",
@@ -35,14 +35,18 @@ export default function SubscribeDash() {
                     },
                     {
                         id: 3,
-                        name: t('subscribe_start_prem_3')
+                        name: t('subscribe_standart_prem_3')
                     },
                     {
                         id: 4,
-                        name: t('subscribe_start_prem_5')
+                        name: t('subscribe_start_prem_3')
                     },
                     {
                         id: 5,
+                        name: t('subscribe_start_prem_5')
+                    },
+                    {
+                        id: 6,
                         name: t('subscribe_premium_prem_5')
                     }
                 ],
@@ -50,7 +54,7 @@ export default function SubscribeDash() {
             {
                 id: 2,
                 title: t('subscribe_premium'),
-                discript: t('subscribe_premium_discript'),
+                discript: t('subscribe_profession_discript'),
                 svg: <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" fill="none"><path d="M16 7C16 6.07003 16 5.60504 15.8978 5.22354C15.6204 4.18827 14.8117 3.37962 13.7765 3.10222C13.395 3 12.93 3 12 3C11.07 3 10.605 3 10.2235 3.10222C9.18827 3.37962 8.37962 4.18827 8.10222 5.22354C8 5.60504 8 6.07003 8 7M14 11.5C13.5 11.376 12.6851 11.3714 12 11.376M12 11.376C11.7709 11.3775 11.9094 11.3678 11.6 11.376C10.7926 11.4012 10.0016 11.7368 10 12.6875C9.99825 13.7004 11 14 12 14C13 14 14 14.2312 14 15.3125C14 16.1251 13.1925 16.4812 12.1861 16.5991C11.3861 16.5991 11 16.625 10 16.5M12 11.376L12 10M12 16.5995V18M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V11.8C21 10.1198 21 9.27976 20.673 8.63803C20.3854 8.07354 19.9265 7.6146 19.362 7.32698C18.7202 7 17.8802 7 16.2 7H7.8C6.11984 7 5.27976 7 4.63803 7.32698C4.07354 7.6146 3.6146 8.07354 3.32698 8.63803C3 9.27976 3 10.1198 3 11.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z" className="stroke-indigo-600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>,
                 price: "999",
                 user: "329",
@@ -69,28 +73,83 @@ export default function SubscribeDash() {
                     },
                     {
                         id: 3,
-                        name: t('subscribe_premium_prem_3')
+                        name: t('subscribe_profession_prem_2')
                     },
                     {
                         id: 4,
-                        name: t('subscribe_premium_prem_4')
+                        name: t('subscribe_profession_prem_3')
                     },
                     {
                         id: 5,
+                        name: t('subscribe_premium_prem_4')
+                    },
+                    {
+                        id: 6,
                         name: t('subscribe_premium_prem_7')
+                    },
+                    {
+                        id: 7,
+                        name: t('subscribe_profession_prem_4')
                     }
+                    ,
+                    {
+                        id: 8,
+                        name: t('subscribe_profession_prem_5')
+                    }
+                ],
+            },
+            {
+                id: 3,
+                title: t('subscribe_start'),
+                discript: t('subscribe_premium_discript'),
+                svg: <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" fill="none"><path d="M16 7C16 6.07003 16 5.60504 15.8978 5.22354C15.6204 4.18827 14.8117 3.37962 13.7765 3.10222C13.395 3 12.93 3 12 3C11.07 3 10.605 3 10.2235 3.10222C9.18827 3.37962 8.37962 4.18827 8.10222 5.22354C8 5.60504 8 6.07003 8 7M14 11.5C13.5 11.376 12.6851 11.3714 12 11.376M12 11.376C11.7709 11.3775 11.9094 11.3678 11.6 11.376C10.7926 11.4012 10.0016 11.7368 10 12.6875C9.99825 13.7004 11 14 12 14C13 14 14 14.2312 14 15.3125C14 16.1251 13.1925 16.4812 12.1861 16.5991C11.3861 16.5991 11 16.625 10 16.5M12 11.376L12 10M12 16.5995V18M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V11.8C21 10.1198 21 9.27976 20.673 8.63803C20.3854 8.07354 19.9265 7.6146 19.362 7.32698C18.7202 7 17.8802 7 16.2 7H7.8C6.11984 7 5.27976 7 4.63803 7.32698C4.07354 7.6146 3.6146 8.07354 3.32698 8.63803C3 9.27976 3 10.1198 3 11.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z" className="stroke-indigo-600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+                price: "499",
+                user: "329",
+                time: "3_month",
+                type: "month_premka",
+                color: "block w-full rounded-md bg-orange-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600",
+                name: t('buy'),
+                advantages: [
+                    {
+                        id: 1,
+                        name: t('subscribe_premium_prem_8')
+                    },
+                    {
+                        id: 2,
+                        name: t('subscribe_standart_prem_2')
+                    },
+                    {
+                        id: 3,
+                        name: t('subscribe_premium_prem_2')
+                    },
+                    {
+                        id: 4,
+                        name: t('subscribe_premium_prem_3')
+                    },
+                    {
+                        id: 5,
+                        name: t('subscribe_premium_prem_4')
+                    },
+                    {
+                        id: 6,
+                        name: t('subscribe_premium_prem_7')
+                    },
+                    {
+                        id: 6,
+                        name: t('subscribe_premium_prem_9')
+                    },
                 ],
             }
         ],
         year: [
             {
                 id: 1,
-                title: t('subscribe_start'),
+                title: t('subscribe_standart'),
                 discript: t('subscribe_start_discript'),
-                price: "2999",
+                price: "249",
                 svg: <svg xmlns="http://www.w3.org/2000/svg" className="fill-indigo-600" width="2em" height="2em" viewBox="0 0 96 96"> <title /> <g> <path d="M84,36a6,6,0,0,0-12,0,24,24,0,0,1-48,0,6,6,0,0,0-12,0A35.9772,35.9772,0,0,0,42,71.3936V84H30a6,6,0,0,0,0,12H66a6,6,0,0,0,0-12H54V71.3936A35.9772,35.9772,0,0,0,84,36Z" /> <path d="M48,48A12.0157,12.0157,0,0,0,60,36V12a12,12,0,0,0-24,0V36A12.0157,12.0157,0,0,0,48,48Z" /> </g> </svg>,
                 user: "657",
-                time: "years",
+                time: "3_month",
                 type: "year_start",
                 color: "block w-full rounded-md bg-green-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600",
                 name: t('buy'),
@@ -105,14 +164,18 @@ export default function SubscribeDash() {
                     },
                     {
                         id: 3,
-                        name: t('subscribe_start_prem_3')
+                        name: t('subscribe_standart_prem_3')
                     },
                     {
                         id: 4,
-                        name: t('subscribe_start_prem_5')
+                        name: t('subscribe_start_prem_3')
                     },
                     {
                         id: 5,
+                        name: t('subscribe_start_prem_5')
+                    },
+                    {
+                        id: 6,
                         name: t('subscribe_premium_prem_5')
                     }
                 ],
@@ -120,11 +183,11 @@ export default function SubscribeDash() {
             {
                 id: 2,
                 title: t('subscribe_premium'),
-                discript: t('subscribe_premium_discript'),
+                discript: t('subscribe_profession_discript'),
                 svg: <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" fill="none"><path d="M16 7C16 6.07003 16 5.60504 15.8978 5.22354C15.6204 4.18827 14.8117 3.37962 13.7765 3.10222C13.395 3 12.93 3 12 3C11.07 3 10.605 3 10.2235 3.10222C9.18827 3.37962 8.37962 4.18827 8.10222 5.22354C8 5.60504 8 6.07003 8 7M14 11.5C13.5 11.376 12.6851 11.3714 12 11.376M12 11.376C11.7709 11.3775 11.9094 11.3678 11.6 11.376C10.7926 11.4012 10.0016 11.7368 10 12.6875C9.99825 13.7004 11 14 12 14C13 14 14 14.2312 14 15.3125C14 16.1251 13.1925 16.4812 12.1861 16.5991C11.3861 16.5991 11 16.625 10 16.5M12 11.376L12 10M12 16.5995V18M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V11.8C21 10.1198 21 9.27976 20.673 8.63803C20.3854 8.07354 19.9265 7.6146 19.362 7.32698C18.7202 7 17.8802 7 16.2 7H7.8C6.11984 7 5.27976 7 4.63803 7.32698C4.07354 7.6146 3.6146 8.07354 3.32698 8.63803C3 9.27976 3 10.1198 3 11.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z" className="stroke-indigo-600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>,
-                price: "6499",
+                price: "599",
                 user: "219",
-                time: "years",
+                time: "3_month",
                 type: "year_premium",
                 color: "block w-full rounded-md bg-orange-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600",
                 name: t('buy'),
@@ -139,16 +202,72 @@ export default function SubscribeDash() {
                     },
                     {
                         id: 3,
-                        name: t('subscribe_premium_prem_3')
+                        name: t('subscribe_profession_prem_2')
                     },
                     {
                         id: 4,
-                        name: t('subscribe_premium_prem_4')
+                        name: t('subscribe_profession_prem_3')
                     },
                     {
                         id: 5,
+                        name: t('subscribe_premium_prem_4')
+                    },
+                    {
+                        id: 6,
                         name: t('subscribe_premium_prem_7')
+                    },
+                    {
+                        id: 7,
+                        name: t('subscribe_profession_prem_4')
                     }
+                    ,
+                    {
+                        id: 8,
+                        name: t('subscribe_profession_prem_5')
+                    }
+                ],
+            },
+
+            {
+                id: 3,
+                title: t('subscribe_start'),
+                discript: t('subscribe_premium_discript'),
+                svg: <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" fill="none"><path d="M16 7C16 6.07003 16 5.60504 15.8978 5.22354C15.6204 4.18827 14.8117 3.37962 13.7765 3.10222C13.395 3 12.93 3 12 3C11.07 3 10.605 3 10.2235 3.10222C9.18827 3.37962 8.37962 4.18827 8.10222 5.22354C8 5.60504 8 6.07003 8 7M14 11.5C13.5 11.376 12.6851 11.3714 12 11.376M12 11.376C11.7709 11.3775 11.9094 11.3678 11.6 11.376C10.7926 11.4012 10.0016 11.7368 10 12.6875C9.99825 13.7004 11 14 12 14C13 14 14 14.2312 14 15.3125C14 16.1251 13.1925 16.4812 12.1861 16.5991C11.3861 16.5991 11 16.625 10 16.5M12 11.376L12 10M12 16.5995V18M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V11.8C21 10.1198 21 9.27976 20.673 8.63803C20.3854 8.07354 19.9265 7.6146 19.362 7.32698C18.7202 7 17.8802 7 16.2 7H7.8C6.11984 7 5.27976 7 4.63803 7.32698C4.07354 7.6146 3.6146 8.07354 3.32698 8.63803C3 9.27976 3 10.1198 3 11.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z" className="stroke-indigo-600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+                price: "333",
+                user: "219",
+                time: "3_month",
+                type: "year_premka",
+                color: "block w-full rounded-md bg-orange-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600",
+                name: t('buy'),
+                advantages: [
+                    {
+                        id: 1,
+                        name: t('subscribe_premium_prem_8')
+                    },
+                    {
+                        id: 2,
+                        name: t('subscribe_standart_prem_2')
+                    },
+                    {
+                        id: 3,
+                        name: t('subscribe_premium_prem_2')
+                    },
+                    {
+                        id: 4,
+                        name: t('subscribe_premium_prem_3')
+                    },
+                    {
+                        id: 5,
+                        name: t('subscribe_premium_prem_4')
+                    },
+                    {
+                        id: 6,
+                        name: t('subscribe_premium_prem_7')
+                    },
+                    {
+                        id: 6,
+                        name: t('subscribe_premium_prem_9')
+                    },
                 ],
             }
         ]
@@ -179,8 +298,10 @@ export default function SubscribeDash() {
                 let amount = 0
                 if(value === "month_start") amount = 329
                 if(value === "month_premium") amount = 999
+                if(value === "month_premka") amount = 499
                 if(value === "year_start") amount = 2999
                 if(value === "year_premium") amount = 6499
+                if(value === "year_premka") amount = 3996
 
                 const create_payment = await fetch(`/api/user/payment`, {
                     method: "POST",
@@ -221,7 +342,7 @@ export default function SubscribeDash() {
                 <Tab.Panels>
                     {Object.values(subscriptions).map((posts, index) => (
                         <Tab.Panel key={index}>
-                            <div className="grid gap-4 md:grid-cols-2 grid-cols-1 justify-center items-center w-full mt-4">
+                            <div className="grid gap-4 md:grid-cols-3 grid-cols-1 justify-center items-center w-full mt-4">
                                 {posts.map((subscription) => (
                                     <div className="flex flex-col p-8 w-full text-left relative h-full gap-y-8 rounded-3xl border border-slate-300 dark:border-zinc-800  bg-white dark:bg-zinc-900 shadow-sm" key={subscription.id}>
                                         <div className='flex flex-col gap-y-2 '>

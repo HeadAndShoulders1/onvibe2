@@ -52,7 +52,8 @@ export async function POST(request: Request) {
                 artist: updatedArray
               }
             });
-          } else {
+          }
+          if (type == 'feat') {
             const originalArray = releaseData.featartist;
             const elementToRemove = name;
             const updatedArray = originalArray.filter(element => element !== elementToRemove);
@@ -65,6 +66,33 @@ export async function POST(request: Request) {
               }
             });
           }
+          if (type == 'autor') {
+            const originalArray = releaseData.autor;
+            const elementToRemove = name;
+            const updatedArray = originalArray.filter(element => element !== elementToRemove);
+            const result_update = await prisma.tracks.update({
+              where: {
+                id: id_release,
+              },
+              data: {
+                autor: updatedArray
+              }
+            });
+          }
+          if (type == 'autortext') {
+            const originalArray = releaseData.autor_text;
+            const elementToRemove = name;
+            const updatedArray = originalArray.filter(element => element !== elementToRemove);
+            const result_update = await prisma.tracks.update({
+              where: {
+                id: id_release,
+              },
+              data: {
+                autor_text: updatedArray
+              }
+            });
+          }
+          
 
           const userdata12 = await prisma.tracks.findUnique({
             where: {

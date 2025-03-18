@@ -93,10 +93,10 @@ const Footers = () => {
         },
     ]
     return (
-        <footer className="w-full py-16 divide-y divide-gray-500/10 max-w-7xl lg:m-auto ">
-            <div className="-my-6 divide-y divide-gray-500/10"></div>
-            <div className='flex w-full mx-auto p-10 first-letter:lg:p-20 align-text-top'>
-                <div className='grid gap-6 lg:grid-cols-5 justify-center w-full py-10'>
+        <footer className="w-11/12 2xl:w-10/12 mb-12 divide-y divide-slate-300/50 dark:divide-gray-500/10 mx-auto mt-20">
+            <div className="-my-6 divide-y divide-slate-300/50 dark:divide-gray-500/10"></div>
+            <div className='flex w-full mx-auto align-text-top'>
+                <div className='grid gap-6 lg:grid-cols-5 w-full py-10'>
                     <div>
                         <a href="/" className="-m-1.5 p-1.5">
                             <Logo />

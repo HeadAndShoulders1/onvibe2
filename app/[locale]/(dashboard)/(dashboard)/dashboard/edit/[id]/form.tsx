@@ -1,6 +1,6 @@
 "use client"
 import { useTranslations } from "next-intl"
-import { useEffect, useState, MouseEventHandler, useRef, Fragment, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react";
+import { useEffect, useState, MouseEventHandler, useRef, Fragment} from "react";
 import { Dialog, Listbox, RadioGroup, Transition } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import Datepicker from "react-tailwindcss-datepicker";
@@ -156,6 +156,46 @@ export default function EditReleaseForm({ params }: { params: { id: string } }) 
         }
     };
 
+    const DeleteAutor: MouseEventHandler<HTMLButtonElement> = async (e) => {
+        try {
+            const value = e.currentTarget.value;
+            const res = await fetch("/api/releases/delete_artist", {
+                method: "POST",
+                body: JSON.stringify({
+                    id_release: parseInt(params.id, 10),
+                    type: "autor",
+                    name: value,
+                })
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setReleases(data)
+            }
+        } catch (error) {
+            console.error("Failed to fetch user data:", error);
+        }
+    };
+
+    const DeleteAutorText: MouseEventHandler<HTMLButtonElement> = async (e) => {
+        try {
+            const value = e.currentTarget.value;
+            const res = await fetch("/api/releases/delete_artist", {
+                method: "POST",
+                body: JSON.stringify({
+                    id_release: parseInt(params.id, 10),
+                    type: "autortext",
+                    name: value,
+                })
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setReleases(data)
+            }
+        } catch (error) {
+            console.error("Failed to fetch user data:", error);
+        }
+    };
+
     let [release_info, setReleases] = useState<Release | null>(null);
     type Release = {
         id: string;
@@ -163,6 +203,8 @@ export default function EditReleaseForm({ params }: { params: { id: string } }) 
         title: string;
         version: string;
         artist: string;
+        autor: string;
+        autor_text: string;
         featartist: string;
         date_release: Date;
         genre: string;
@@ -315,6 +357,16 @@ export default function EditReleaseForm({ params }: { params: { id: string } }) 
             id: 2,
             type: t('type_feat_artist'),
             type_ph: t('type_feat_artist_description')
+        },
+        {
+            id: 3,
+            type: t('type_autor_artist'),
+            type_ph: t('add_autor_dialog_description')
+        },
+        {
+            id: 4,
+            type: t('type_autortext_artist'),
+            type_ph: t('add_autortext_dialog_description')
         },
     ]
 
@@ -548,6 +600,78 @@ export default function EditReleaseForm({ params }: { params: { id: string } }) 
                                 </div>
                             ))}
                         </div>
+
+                        <div className="flex flex-wrap gap-3 gap-x-3">
+                            {Array.isArray(release_info?.autor) && release_info?.autor.map((item: any, index: any) => (
+                                <div className="flex items-center gap-x-2 justify-between  bg-white dark:bg-zinc-900 rounded-xl border-2 text-left border-slate-300 dark:border-zinc-800 px-2 py-1 " key={index}>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" fill="none">
+                                            <g clipPath="url(#clip0_429_11111)">
+                                                <circle cx="12" cy="7" r="3" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2.5" />
+                                                <circle cx="18" cy="18" r="2" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                                <path d="M12.3414 20H6C4.89543 20 4 19.1046 4 18C4 15.7909 5.79086 14 8 14H13.5278" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                                <path d="M20 18V11L22 13" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div className="grid gap-y-1">
+                                        <div className="text-base font-semibold text-zinc-800 dark:text-slate-200">
+                                            {item}
+                                        </div>
+                                        <div className="text-sm text-slate-2000 dark:text-zinc-400">
+                                            {t('type_autor_artist')}
+                                        </div>
+                                    </div>
+
+                                    <button onClick={DeleteAutor} value={item as string}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" fill="none">
+                                            <path d="M10 12V17" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M14 12V17" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M4 7H20" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </button>
+
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="flex flex-wrap gap-3 gap-x-3">
+                            {Array.isArray(release_info?.autor_text) && release_info?.autor_text.map((item: any, index: any) => (
+                                <div className="flex items-center gap-x-2 justify-between  bg-white dark:bg-zinc-900 rounded-xl border-2 text-left border-slate-300 dark:border-zinc-800 px-2 py-1 " key={index}>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" fill="none">
+                                            <g clipPath="url(#clip0_429_11111)">
+                                                <circle cx="12" cy="7" r="3" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2.5" />
+                                                <circle cx="18" cy="18" r="2" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                                <path d="M12.3414 20H6C4.89543 20 4 19.1046 4 18C4 15.7909 5.79086 14 8 14H13.5278" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                                <path d="M20 18V11L22 13" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div className="grid gap-y-1">
+                                        <div className="text-base font-semibold text-zinc-800 dark:text-slate-200">
+                                            {item}
+                                        </div>
+                                        <div className="text-sm text-slate-2000 dark:text-zinc-400">
+                                            {t('type_autortext_artist')}
+                                        </div>
+                                    </div>
+
+                                    <button onClick={DeleteAutorText} value={item as string}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" fill="none">
+                                            <path d="M10 12V17" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M14 12V17" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M4 7H20" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" className="stroke-zinc-800 dark:stroke-slate-300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </button>
+
+                                </div>
+                            ))}
+                    </div>
                     </div>
                     <div>
                         <button className="flex items-center gap-x-2 justify-between transition bg-white dark:bg-zinc-900 rounded-xl border-2 text-left border-slate-300 dark:border-zinc-800 p-2 hover:bg-gray-200 dark:hover:bg-zinc-800 hover shadow-sm" onClick={openModal}>

@@ -64,7 +64,9 @@ export async function POST(request: Request) {
           is_instrumental: info_release?.is_instrumental,
           genre: info_release?.genre,
           artist: info_release?.artist,
-          featartist: info_release?.featartist
+          featartist: info_release?.featartist,
+          autor: info_release?.autor,
+          autor_text: info_release?.autor_text,
         };
 
         return NextResponse.json(about_track);

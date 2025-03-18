@@ -39,7 +39,8 @@ export async function POST(request: Request) {
               },
             },
           });
-        } else {
+        }
+        if (type == 2) {
           const result_update = await prisma.release.update({
             where: {
               id: id_release,
@@ -51,6 +52,42 @@ export async function POST(request: Request) {
             },
           });
         }
+        if (type == 3) {
+          const result_update = await prisma.release.update({
+            where: {
+              id: id_release,
+            },
+            data: {
+              autor: {
+                push: name,
+              },
+            },
+          });
+        }
+      }
+      if (type == 3) {
+          const result_update = await prisma.release.update({
+            where: {
+              id: id_release,
+            },
+            data: {
+              autor: {
+                push: name,
+              },
+            },
+          });
+      }
+      if (type == 4) {
+          const result_update = await prisma.release.update({
+            where: {
+              id: id_release,
+            },
+            data: {
+              autor_text: {
+                push: name,
+              },
+            },
+        });
       }
       const userdata12 = await prisma.release.findUnique({
         where: {

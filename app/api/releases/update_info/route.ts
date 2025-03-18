@@ -72,6 +72,8 @@ export async function POST(request: Request) {
           date_release: info_release?.date_release,
           artist: info_release?.artist,
           featartist: info_release?.featartist,
+          autor: info_release?.autor,
+          autor_text: info_release?.autor_text,
           genre: info_release?.genre,
 
         }

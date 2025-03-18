@@ -41,7 +41,8 @@ export async function POST(request: Request) {
               artist: updatedArray
             }
           });
-        } else {
+        }
+        if (type == 'feat') {
           const originalArray = releaseData.featartist
           const elementToRemove = name;
           const updatedArray = originalArray.filter(element => element !== elementToRemove);
@@ -53,6 +54,34 @@ export async function POST(request: Request) {
               featartist: updatedArray
             }
           });
+        }
+        if (type == 'autor') {
+            const originalArray = releaseData.autor
+            const elementToRemove = name;
+            const updatedArray = originalArray.filter(element => element !== elementToRemove);
+            const result_update = await prisma.release.update({
+              where: {
+                id: id_release,
+              },
+              data: {
+                autor: updatedArray
+              }
+        });
+        }
+        if (type == 'autortext') {
+            const originalArray = releaseData.autor_text
+            const elementToRemove = name;
+            const updatedArray = originalArray.filter(element => element !== elementToRemove);
+            const result_update = await prisma.release.update({
+              where: {
+                id: id_release,
+              },
+              data: {
+                autor_text: updatedArray
+              }
+        
+        });
+        
         }
         const userdata12 = await prisma.release.findUnique({
           where: {
@@ -70,6 +99,8 @@ export async function POST(request: Request) {
           date_release: userdata12?.date_release,
           artist: userdata12?.artist,
           featartist: userdata12?.featartist,
+          autor: userdata12?.autor,
+          autortext: userdata12?.autor,
           genre: userdata12?.genre,
         }
         return NextResponse.json(info);

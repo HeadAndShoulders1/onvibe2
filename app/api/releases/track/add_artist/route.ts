@@ -46,13 +46,38 @@ export async function POST(request: Request) {
                 },
               },
             });
-          } else {
+          }
+          if (type == 2) {
             const result_update = await prisma.tracks.update({
               where: {
                 id: id_release,
               },
               data: {
                 featartist: {
+                  push: name,
+                },
+              },
+            });
+          }
+          if (type == 3) {
+            const result_update = await prisma.tracks.update({
+              where: {
+                id: id_release,
+              },
+              data: {
+                autor: {
+                  push: name,
+                },
+              },
+            });
+          }
+          if (type == 4) {
+            const result_update = await prisma.tracks.update({
+              where: {
+                id: id_release,
+              },
+              data: {
+                autor_text: {
                   push: name,
                 },
               },

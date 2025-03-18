@@ -47,26 +47,22 @@ export default function HowWork() {
             <h1 className="tracking-tight text-slate-400 sm:text-1xl text-center py-3 dark:text-zinc-400">
                 {t('how_it_work_detail')}
             </h1>
-            <div className="mt-6 border border-slate-300 dark:border-zinc-800 shadow-sm-sm-md bg-white dark:bg-zinc-900 rounded-3xl">
-                <div className='grid gap-12 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 justify-center p-8 z-20  '>
-                    {steps.map((step) => (
-                        <div className="flex w-full gap-2 lg:items-center flex-col align-text-top" key={step.id}>
-                            <div className='flex w-full px-2 justify-center items-center  gap-y-2 '>
-                                <div>
-                                    {step.svg}
-                                </div>
-                            </div>
-                            <div className="flex flex-col px-2 gap-y-2 justify-center text-center">
-                                <span className="text-base lg:text-xl font-semibold leading-6 text-grey-900 dark:text-slate-200">
-                                    {step.title}
-                                </span>
-                                <span className="text-sm lg:text-base  text-zinc-500 dark:text-zinc-400">
-                                    {step.detail}
-                                </span>
-                            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+                {steps.map((step) => (
+                    <div className="flex w-full gap-2 flex-col border dark:border-zinc-800 border-slate-300 p-4 rounded-lg h-full hover:bg-zinc-100 transition-all dark:hover:bg-zinc-800" key={step.id}>
+                        <div className="h-10">
+                            {step.svg}
                         </div>
-                    ))}
-                </div>
+                        <div className="flex flex-col gap-y-2 justify-center ">
+                            <span className="text-base lg:text-xl font-medium text-zinc-800 dark:text-slate-200">
+                                {step.title}
+                            </span>
+                            <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                                {step.detail}
+                            </span>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     )
