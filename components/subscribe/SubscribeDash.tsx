@@ -31,22 +31,18 @@ export default function SubscribeDash() {
                     },
                     {
                         id: 2,
-                        name: t('subscribe_start_prem_2')
-                    },
-                    {
-                        id: 3,
                         name: t('subscribe_standart_prem_3')
                     },
                     {
-                        id: 4,
+                        id: 3,
                         name: t('subscribe_start_prem_3')
                     },
                     {
-                        id: 5,
+                        id: 4,
                         name: t('subscribe_start_prem_5')
                     },
                     {
-                        id: 6,
+                        id: 5,
                         name: t('subscribe_premium_prem_5')
                     }
                 ],
@@ -160,22 +156,18 @@ export default function SubscribeDash() {
                     },
                     {
                         id: 2,
-                        name: t('subscribe_start_prem_2')
-                    },
-                    {
-                        id: 3,
                         name: t('subscribe_standart_prem_3')
                     },
                     {
-                        id: 4,
+                        id: 3,
                         name: t('subscribe_start_prem_3')
                     },
                     {
-                        id: 5,
+                        id: 4,
                         name: t('subscribe_start_prem_5')
                     },
                     {
-                        id: 6,
+                        id: 5,
                         name: t('subscribe_premium_prem_5')
                     }
                 ],
