@@ -56,7 +56,7 @@ export async function POST(request: Request) {
                         }
                     })
                     endDate.setMonth(startDate.getMonth() + 1);
-                    id_subscribe = 3
+                    id_subscribe = 4
                     amount = 329
                 }
 
@@ -74,6 +74,20 @@ export async function POST(request: Request) {
                     id_subscribe = 2
                     amount = 999
                 }
+                if (type_subscribe == "month_premka" && userdata.balance >= 499) {
+                    have_money = true;
+                    const update_money_user = await prisma.user.update({
+                        where: {
+                            id: userdata.id
+                        },
+                        data: {
+                            balance: userdata.balance - 499
+                        }
+                    })
+                    endDate.setMonth(startDate.getMonth() + 1);
+                    id_subscribe = 3
+                    amount = 499
+                }
 
                 if (type_subscribe == "year_start" && userdata.balance >= 2999) {
                     have_money = true;
@@ -86,7 +100,7 @@ export async function POST(request: Request) {
                         }
                     })
                     endDate.setMonth(startDate.getMonth() + 12);
-                    id_subscribe = 3
+                    id_subscribe = 4
                     amount = 2999
                 }
 
@@ -103,6 +117,21 @@ export async function POST(request: Request) {
                     endDate.setMonth(startDate.getMonth() + 12);
                     id_subscribe = 2
                     amount = 6499
+                }
+
+                if (type_subscribe == "year_premka" && userdata.balance >= 3996) {
+                    have_money = true;
+                    const update_money_user = await prisma.user.update({
+                        where: {
+                            id: userdata.id
+                        },
+                        data: {
+                            balance: userdata.balance - 3996
+                        }
+                    })
+                    endDate.setMonth(startDate.getMonth() + 12);
+                    id_subscribe = 3
+                    amount = 3996
                 }
 
                 if (have_money == true) {
