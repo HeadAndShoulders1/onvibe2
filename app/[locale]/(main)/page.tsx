@@ -11,6 +11,7 @@ import LogoCarousel from '@/components/main/partners/partners';
 import TracksHome from '@/components/main/tracks/tracks';
 import StoresOther2 from '@/components/main/platform_store_2/page';
 import PlaylistsHome from '@/components/main/playlists/playlists-home';
+import Link from 'next/link';
 
 export default function Home() {
   useEffect(() => {
@@ -37,9 +38,13 @@ export default function Home() {
             <span className="lg:text-base text-sm dark:text-zinc-500 text-slate-500 max-w-4xl" data-aos="fade-left" data-aos-delay="100">{t('description')}</span>
             <div className="flex gap-x-4 items-center" data-aos="fade-up" data-aos-delay="100">
               <div className="rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1">
-                <div className="hover:bg-gray-700 transition bg-gray-800 rounded-full px-8 py-2 text-sm lg:text-base text-slate-50 font-medium">{t('sign_in')}</div>
+                <Link href='/auth/signin'>
+                  <div className="hover:bg-gray-700 transition bg-gray-800 rounded-full px-8 py-2 text-sm lg:text-base text-slate-50 font-medium">{t('sign_in')}</div>
+                </Link>
               </div>
-              <div className="hover:bg-zinc-300 hover:dark:bg-zinc-700 transition rounded-md h-fit px-4 py-2 text-sm lg:text-base dark:text-zinc-300 text-zinc-700 font-bold">{t('learn_more')}</div>
+              <Link href='/distribution'>
+                <div className="hover:bg-zinc-300 hover:dark:bg-zinc-700 transition rounded-md h-fit px-4 py-2 text-sm lg:text-base dark:text-zinc-300 text-zinc-700 font-bold">{t('learn_more')}</div>
+              </Link>
             </div>
           </div>
         </div>
