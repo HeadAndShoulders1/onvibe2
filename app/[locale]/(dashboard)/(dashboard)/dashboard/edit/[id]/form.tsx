@@ -256,6 +256,7 @@ export default function EditReleaseForm({ params }: { params: { id: string } }) 
 
     const genre = [
         { "name": "Acid Jazz" },
+        { "name": "Electronic" },
         { "name": "Acid Punk" },
         { "name": "Alternative Rock" },
         { "name": "Ambient" },

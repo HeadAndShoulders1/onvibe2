@@ -35,6 +35,7 @@ export default function TrackCatalog({ release_info, id, deleteTrack }: TrackCat
         { "name": "Acid Jazz" },
         { "name": "Acid Punk" },
         { "name": "Alternative Rock" },
+        { "name": "Electronic" },
         { "name": "Ambient" },
         { "name": "Blues" },
         { "name": "Big Beat" },
