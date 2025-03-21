@@ -5,7 +5,7 @@ export default function PlaylistsHome() {
   const tracks = [
     { id: 1, name: "Фонк: лучшее", href: "/m1000x1000 (1).png", artist: "Яндекс Музыка", desc: "vxddka, Mari X - SI AI" },
     { id: 2, name: "Электронная музыка: лучшее", href: "/m1000x1000 (3).png", artist: "Яндекс Музыка", desc: "vxddka, Mari X - SI AI" },
-    { id: 3, name: "Хроника электроника", href: "/m1000x1000 (2).png", artist: "Яндекс Музыка", desc: "vxddka - MANDALA\n vxddka - SI AI \n vxddka - PASSION \n Anjee, Leenk - Tell you" },
+    { id: 3, name: "Хроника электроника", href: "/m1000x1000 (2).png", artist: "Яндекс Музыка", desc: "vxddka - MANDALA\n vxddka - SI AI \n vxddka - PASSION \n Anjee, Leenk - Tell you \n hxxerhj, hels1ng - The Days (hell nah bro)" },
   ];
 
   return (
