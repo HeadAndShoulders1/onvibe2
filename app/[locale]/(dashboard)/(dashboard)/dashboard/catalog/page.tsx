@@ -202,15 +202,30 @@ export default function Header() {
     setModerateValue(value)
   }
   const md = useTranslations('metadata')
+  const today = new Date();
+  const isWeekend = today.getDay() === 0 || today.getDay() === 6;
   return (
     <>
       <head>
         <title>{md('catalog')}</title>
       </head>
       <div>
+      {isWeekend && 
+      <>
+        <div className="flex fixed bottom-10 right-1 z-50 p-8 h-12 bg-[#fff] dark:bg-zinc-900 rounded-2xl border border-slate-300 ml-auto dark:border-zinc-800 w-[300px] items-center shadow-sm">
+          <div className="grid grid-flow-col-1">
+            <span className="text-sm font-semibold text-zinc-800 dark:text-slate-200">Продуктивных выходных!</span>
+            <span className="text-sm font-semibold text-zinc-800 dark:text-slate-200">Модераторы отдыхают</span>
+          </div>
+          <div className="ml-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#5900ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-moon-star"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg>
+          </div>
+        </div>
+      </>
+      }
         <span className="text-3xl text-zinc-800 font-bold dark:text-slate-200">{t('catalog_title')}</span>
         <div className="flex flex-col lg:items-center gap-2 mt-4 lg:flex-row lg:justify-between ">
-          <div className="flex p-2 h-12 bg-[#fbfdff] dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 w-full items-center shadow-sm">
+          <div className="flex p-2 h-12 bg-[#fff] dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 w-full items-center shadow-sm">
             <div className="flex gap-x-2 w-full">
               <div className="w-20 flex justify-center border-r-2 border-slate-300 dark:border-zinc-800">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none">
@@ -227,7 +242,7 @@ export default function Header() {
               />
             </div>
           </div>
-          <div className="flex p-2 bg-[#fbfdff] h-12 text-zinc-800 dark:text-slate-200 text-base dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 w-full lg:w-fit items-center shadow-sm">
+          <div className="flex p-2 bg-[#fff] h-12 text-zinc-800 dark:text-slate-200 text-base dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 w-full lg:w-fit items-center shadow-sm">
             <Listbox onChange={onFilter}>
               <div className="relative flex flex-col gap-y-2 w-full lg:w-fit">
                 <Listbox.Button className="flex lg:w-64 w-full justify-between outline-none whitespace-nowrap text-base rounded-xl text-left p-2">
@@ -243,12 +258,12 @@ export default function Header() {
                   leaveFrom="transform scale-100 opacity-100"
                   leaveTo="transform scale-95 opacity-0"
                 >
-                  <Listbox.Options className="absolute z-20 mt-12 max-h-60 w-full overflow-auto rounded-xl bg-[#ecf4ff] lg:w-fit  dark:bg-zinc-900 text-base shadow-lg ring-1 text-left  ring-black ring-opacity-5 focus:outline-none sm:text-sm ">
+                  <Listbox.Options className="absolute z-20 mt-12 max-h-60 w-full overflow-auto rounded-xl bg-white lg:w-fit  dark:bg-zinc-900 text-base shadow-lg ring-1 text-left  ring-black ring-opacity-5 focus:outline-none sm:text-sm ">
                     {genre.map((person, personIdx) => (
                       <Listbox.Option
                         key={personIdx}
                         className={({ active }) =>
-                          `relative cursor-default select-none py-2  hover:bg-gray-200 dark:hover:bg-zinc-800 hover`
+                          `relative cursor-default select-none py-2 hover:bg-gray-200 dark:hover:bg-zinc-800 hover`
                         }
                         value={person}
                       >
@@ -282,7 +297,7 @@ export default function Header() {
         ) : (
           <div className="flex flex-col gap-y-4 mt-4">
             {release_info ? release_info.map((item) => (
-              <div className="flex flex-col bg-[#f6faff] dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 shadow-sm" key={item.id}>
+              <div className="flex flex-col bg-[#fff] dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 shadow-sm" key={item.id}>
                 <div className="flex border-b border-slate-300 dark:border-zinc-800">
                   <div className="flex w-full flex-col lg:flex-row p-4 gap-y-4">
                     <div className="">
