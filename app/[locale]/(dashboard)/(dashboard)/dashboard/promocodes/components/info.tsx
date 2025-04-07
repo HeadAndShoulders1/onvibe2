@@ -31,7 +31,7 @@ export default function PromocodesInfoUser({ summ, info_promo }: { summ: any, in
                     </div>
                 </div>
             </div>
-            <div className="flex p-4 bg-[#fff] dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 w-full items-center shadow-md">
+            <div className="flex p-4 bg-[#fff] dark:bg-zinc-900 rounded-2xl w-full items-center shadow-md">
                 <div className="w-full flex items-start justify-between">
                     <div className="flex gap-x-3 items-center">
                         <div className="flex bg-gray-200 dark:bg-zinc-800 rounded-full w-12 h-12 justify-center items-center">
