@@ -14,7 +14,7 @@ export default function HistoryPromocodes({ promoaction }: { promoaction: any })
     return (
         <>
             {promoaction.map((action: any, index: any) => (
-                <div className="bg-[#fff] dark:bg-zinc-900 rounded-2xl p-4 border  shadow-md" key={index}>
+                <div className="bg-[#fff] dark:bg-zinc-900 rounded-2xl p-4  shadow-md" key={index}>
                     <div className="flex flex-row w-full justify-between">
                         <div className="flex flex-row gap-x-2 items-center">
                             <div className="flex bg-gray-200 dark:bg-zinc-800 rounded-full w-12 h-12 justify-center items-center">

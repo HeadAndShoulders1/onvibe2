@@ -13,7 +13,7 @@ export default function PromocodesInfoUser({ summ, info_promo }: { summ: any, in
     };
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mt-4 gap-4">
-            <div className="flex p-4 bg-[#fff] dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 w-full items-center shadow-md">
+            <div className="flex p-4 bg-[#fff] dark:bg-zinc-900 rounded-2xl  w-full items-center shadow-md">
                 <div className="flex flex-col gap-y-4 w-full">
                     <span className="text-zinc-600 dark:text-zinc-400 text-sm">{t('balance')}</span>
                     <div className="flex justify-between w-full">
@@ -22,7 +22,7 @@ export default function PromocodesInfoUser({ summ, info_promo }: { summ: any, in
                             <p className="text-zinc-600 dark:text-zinc-400 text-lg">RUB</p>
                         </div>
                         {summ >= 500 ? (
-                            <button className="flex w-12 h-12 items-center justify-center rounded-xl hover:bg-gray-200 dark:hover:bg-zinc-800 transition border border-slate-300 dark:border-zinc-800">
+                            <button className="flex w-12 h-12 items-center justify-center rounded-xl hover:bg-gray-200 dark:hover:bg-zinc-800 transition ">
                                 <svg className="dark:fill-slate-200" xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M13.29 4.086C13.057 4.009 12.74 4 11.75 4h-5.5c-.712 0-1.202 0-1.58.032-.371.03-.57.085-.714.159a1.75 1.75 0 0 0-.765.765c-.043.084-.08.188-.11.335-.022.11.067.21.179.21h10.913c.16 0 .29-.14.241-.292a1.75 1.75 0 0 0-1.123-1.123ZM3 12.7V7.237C3 7.106 3.106 7 3.237 7H13.7c.865 0 1.423.001 1.848.036.408.033.559.09.633.128a1.5 1.5 0 0 1 .655.655c.038.074.095.225.128.633.035.425.036.983.036 1.848v2.4c0 .865-.001 1.423-.036 1.848-.033.408-.09.559-.127.633a1.5 1.5 0 0 1-.656.656c-.074.037-.225.094-.633.127-.425.035-.983.036-1.848.036H6.3c-.865 0-1.423-.001-1.848-.036-.408-.033-.559-.09-.633-.127a1.5 1.5 0 0 1-.656-.656c-.037-.074-.094-.225-.127-.633C3 14.123 3 13.565 3 12.7ZM1.5 7.22v5.48c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311c.642.327 1.482.327 3.162.327h7.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311c.327-.642.327-1.482.327-3.162v-2.4c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.403-1.355 1.678 1.678 0 0 1-.93-1.037 3.25 3.25 0 0 0-2.086-2.087c-.492-.16-1.07-.16-1.874-.159H6.219c-.674 0-1.224 0-1.672.037-.463.037-.882.118-1.272.317a3.25 3.25 0 0 0-1.42 1.42c-.2.391-.28.81-.318 1.273-.037.448-.037.998-.037 1.672Zm11.75 3.28a.75.75 0 0 0 0 1.5h1a.75.75 0 0 0 0-1.5h-1Z" clipRule="evenodd" />
                                 </svg>
