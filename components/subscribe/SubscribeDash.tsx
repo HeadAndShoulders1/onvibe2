@@ -328,7 +328,7 @@ export default function SubscribeDash() {
                         <Tab.Panel key={index}>
                             <div className="grid gap-4 md:grid-cols-3 grid-cols-1 justify-center items-center w-full mt-4">
                                 {posts.map((subscription) => (
-                                    <div className="flex flex-col p-8 w-full text-left relative h-full gap-y-8 rounded-3xl border border-slate-300 dark:border-zinc-800  bg-white dark:bg-zinc-900 shadow-sm" key={subscription.id}>
+                                    <div className="flex flex-col p-8 w-full text-left relative h-full gap-y-8 rounded-3xl  bg-white dark:bg-zinc-900 shadow-sm" key={subscription.id}>
                                         <div className='flex flex-col gap-y-2 '>
                                             <div className='flex w-full justify-between'>
                                                 {subscription.svg}

@@ -120,7 +120,7 @@ export default function NavbarDashboard() {
         fetchData();
     }, []);
     return (
-        <div className="flex w-full lg:py-1 py-3 px-6 lg:relative fixed top-0 z-30  dark:bg-[#141518] bg-[#f8fdff] border-b border-slate-300 dark:border-zinc-800 items-center">
+        <div className="flex w-full lg:py-1 py-3 px-6 lg:relative fixed top-0 z-30  dark:bg-[#141518] bg-[#f8fdff]  items-center">
             <div className="flex w-full lg:w-fit items-center justify-between lg:mr-4">
                 <div className="flex items-center">
                     <NavLink href="/" className="w-40 lg:w-full flex items-center">

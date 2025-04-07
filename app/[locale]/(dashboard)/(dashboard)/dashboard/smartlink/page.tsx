@@ -83,7 +83,7 @@ export default function SmartLinkCatalog() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
           {smartlink_info ? smartlink_info.map((item: any) => (
-            <div className="bg-white dark:bg-zinc-900 rounded-xl border border-slate-300 dark:border-zinc-800 w-full shadow-sm" key={item.id}>
+            <div className="bg-white dark:bg-zinc-900 rounded-xl w-full shadow-sm" key={item.id}>
               <div className="flex lg:flex-row flex-col justify-between ">
                 <div className="lg:flex gap-6">
                   <div className="w-44 h-44">

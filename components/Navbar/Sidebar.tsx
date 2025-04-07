@@ -17,7 +17,7 @@ export default function Sidebar() {
 
 
   return (
-    <div className="w-[16rem] hidden lg:flex flex-shrink-0 flex-col h-full hover:overflow-auto overflow-hidden border-r border-slate-300 dark:border-zinc-800 dark:bg-[#141518] bg-[#f8fdff]">
+    <div className="w-[16rem] hidden lg:flex flex-shrink-0 flex-col h-full hover:overflow-auto overflow-hidden dark:bg-[#141518] bg-[#f8fdff]">
       <div className="flex flex-col gap-y-5 w-full select-none p-4 ">
         <Links />
       </div>

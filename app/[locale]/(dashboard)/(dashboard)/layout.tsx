@@ -57,7 +57,8 @@ export function DashboardLayout({ children }: {
           <NextIntlClientProvider locale={locale} messages={messages}>
             <div className='relative flex h-screen max-h-screen flex-col lg:overflow-y-hidden'>
               <NavbarDashboard />
-              <div className='flex relative dark:bg-[#141518] bg-[#fafdff] h-full pt-16 lg:pt-0'>
+              <div className='flex relative h-full pt-16 lg:pt-0'>
+              <div className="w-full h-screen bg-[url('/lines.svg')] bg-center absolute bg-no-repeat bg-cover opacity-90 dark:opacity-[0.02] z-[-1]"></div>
                 <Sidebar />
                 <div className='h-full w-full overflow-y-scroll px-4 py-8 pb-[200px] lg:px-8 2xl:px-16'>
                   <div className='w-full 2xl:w-11/12'>

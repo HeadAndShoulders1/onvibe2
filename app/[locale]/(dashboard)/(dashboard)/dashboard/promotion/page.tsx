@@ -61,7 +61,7 @@ export default function Generator() {
             </head>
             <span className="text-3xl text-gray-700 font-bold dark:text-slate-200">{t('title')}</span>
             <div className="grid lg:grid-cols-3 2xl:grid-cols-5 gap-4"></div>
-            <button onClick={openModal} className="bg-[#fff] text-left dark:bg-zinc-900 hover:bg-gray-300 hover:dark:bg-zinc-700 transition mt-5 rounded-2xl border border-slate-300 dark:border-zinc-800 shadow-md w-96 p-2">
+            <button onClick={openModal} className="bg-[#fff] text-left dark:bg-zinc-900 hover:bg-gray-300 hover:dark:bg-zinc-700 transition mt-5 rounded-2xl  shadow-md w-96 p-2">
                 <div className="flex gap-y-2 w-full flex-col">
                     <div className="bg-gray-200 dark:bg-zinc-800 h-40 flex items-center justify-center rounded-md w-full">
                         <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24" fill="none">
@@ -86,7 +86,7 @@ export default function Generator() {
                         {snippet.length > 0 ? (
                             <div className="grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 w-full gap-4 mt-4">
                                 {snippet.map((item, index) => (
-                                    <div className="flex flex-col gap-y-4 bg-[#fff] dark:bg-zinc-900 transition rounded-2xl border border-slate-300 dark:border-zinc-800 shadow-md p-4" key={index}>
+                                    <div className="flex flex-col gap-y-4 bg-[#fff] dark:bg-zinc-900 transition rounded-2xl  shadow-md p-4" key={index}>
                                         <div className="flex justify-between">
                                             <div className="flex gap-x-2">
                                                 <img src={`https://onvibe.hb.ru-msk.vkcs.cloud/${item.cover}`} alt="/" className="w-12 rounded-md" />
@@ -200,7 +200,7 @@ export default function Generator() {
                                                 {releases.length > 0 ? (
                                                     <div className="flex flex-col gap-y-4 w-full">
                                                         {releases.map((item, index) => (
-                                                            <a href={`/dashboard/promotion/${item.id}`} className="bg-[#fff] dark:bg-zinc-900 hover:bg-gray-300 hover:dark:bg-zinc-700 transition w-full rounded-2xl border border-slate-300 dark:border-zinc-800 shadow-md p-4" key={index}>
+                                                            <a href={`/dashboard/promotion/${item.id}`} className="bg-[#fff] dark:bg-zinc-900 hover:bg-gray-300 hover:dark:bg-zinc-700 transition w-full rounded-2xl  shadow-md p-4" key={index}>
                                                                 <div className="flex gap-x-2">
                                                                     <img src={`https://onvibe.hb.ru-msk.vkcs.cloud/${item.cover}`} alt="/" className="w-12 rounded-md" />
                                                                     <div className="flex flex-col">

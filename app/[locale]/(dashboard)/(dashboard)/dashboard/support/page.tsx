@@ -90,7 +90,7 @@ export default function Support() {
             <span className="text-3xl text-gray-700 font-bold dark:text-slate-200">{t('title')}</span>
             <div className="flex flex-col gap-y-4 grid-cols-1 mt-5 gap-x-12">
                 <div className="flex w-full max-h-[1024px]">
-                    <div className="grid  w-full bg-white dark:bg-zinc-900 rounded-xl border shadow-md border-gray-300 dark:border-zinc-800">
+                    <div className="grid  w-full bg-white dark:bg-zinc-900 rounded-xl shadow-md ">
                         <div className="flex gap-x-2 w-full items-center border-b  p-4 border-gray-300 dark:border-zinc-800">
                             <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" className="fill-zinc-600 dark:fill-gray-200">
                                 <rect width="24" height="24" fill="none" />

@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function NewsTableVision({ createAt, text, photo_url }: any) {
     return (
-        <div className="bg-white dark:bg-zinc-900 px-8 py-6 rounded-xl border border-slate-300 dark:border-zinc-800 shadow-md w-full">
+        <div className="bg-white dark:bg-zinc-900 px-8 py-6 rounded-xl shadow-md w-full">
             <div className="flex flex-col gap-y-4 ">
                 <div className="flex flex-row gap-x-2 items-center">
                     <Image src="/logo_support.jpg" alt="/" width={48} height={48} className="rounded-2xl w-12 h-12" />

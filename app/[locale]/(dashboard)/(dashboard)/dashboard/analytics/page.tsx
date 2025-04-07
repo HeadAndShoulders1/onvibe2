@@ -112,7 +112,7 @@ export default function Analytics() {
             <div className="flex lg:items-center justify-between lg:flex-row flex-col gap-y-4">
                 <span className="text-3xl text-gray-700 font-bold dark:text-slate-200">{t('title')}</span>
                 <div className="flex lg:flex-row flex-col gap-2">
-                    <div className="flex p-2 bg-[#fff] h-12 text-zinc-800 dark:text-slate-200 text-base dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 w-full lg:w-fit items-center shadow-sm">
+                    <div className="flex p-2 bg-[#fff] h-12 text-zinc-800 dark:text-slate-200 text-base dark:bg-zinc-900 rounded-2xl w-full lg:w-fit items-center shadow-sm">
                         <Listbox onChange={onFilterRelease}>
                             <div className="relative flex flex-col gap-y-2 w-full ">
                                 <Listbox.Button className="flex lg:w-64 w-full justify-between outline-none whitespace-nowrap text-base rounded-md text-left p-2">
@@ -175,7 +175,7 @@ export default function Analytics() {
                             </div>
                         </Listbox>
                     </div>
-                    <div className="flex p-2 bg-[#fff] h-12 text-zinc-800 dark:text-slate-200 text-base dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 w-full lg:w-fit items-center shadow-sm">
+                    <div className="flex p-2 bg-[#fff] h-12 text-zinc-800 dark:text-slate-200 text-base dark:bg-zinc-900 rounded-2xl  w-full lg:w-fit items-center shadow-sm">
                         <Listbox onChange={onFilter}>
                             <div className="relative flex flex-col gap-y-2 w-full ">
                                 <Listbox.Button className="flex lg:w-64 w-full justify-between outline-none whitespace-nowrap text-base rounded-xl text-left p-2">
@@ -191,7 +191,7 @@ export default function Analytics() {
                                     leaveFrom="transform scale-100 opacity-100"
                                     leaveTo="transform scale-95 opacity-0"
                                 >
-                                    <Listbox.Options className="absolute z-20 mt-12 max-h-60 w-full overflow-auto rounded-xl bg-white dark:bg-zinc-900 text-base shadow-lg text-left border border-slate-300 dark:border-zinc-800 sm:text-sm ">
+                                    <Listbox.Options className="absolute z-20 mt-12 max-h-60 w-full overflow-auto rounded-xl bg-white dark:bg-zinc-900 text-base shadow-lg text-left  sm:text-sm ">
                                         {genre.map((person, personIdx) => (
                                             <Listbox.Option
                                                 key={personIdx}
@@ -253,7 +253,7 @@ export default function Analytics() {
                         </>
                     ) : (
                         <div className="flex lg:flex-row flex-col gap-4 mt-4">
-                            <div className="bg-[#fff] dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 shadow-sm w-full">
+                            <div className="bg-[#fff] dark:bg-zinc-900 rounded-2xl shadow-sm w-full">
                                 <div className="flex flex-col gap-y-4">
                                     <div className="p-6 flex flex-col gap-y-8">
                                         <div className="flex gap-x-2 items-center">
@@ -283,7 +283,7 @@ export default function Analytics() {
                                 </div>
                             </div>
 
-                            <div className="flex flex-col justify-between bg-[#fff] pr-6 dark:bg-zinc-900 rounded-2xl border border-slate-300 dark:border-zinc-800 shadow-sm lg:w-1/3 w-full">
+                            <div className="flex flex-col justify-between bg-[#fff] pr-6 dark:bg-zinc-900 rounded-2xl  shadow-sm lg:w-1/3 w-full">
                                 <div className="p-6 flex gap-x-2 items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28" fill="none">
                                         <path clipRule="evenodd" d="M1 20C1 18.8954 1.89543 18 3 18H6C7.10457 18 8 18.8954 8 20V25C8 26.1046 7.10457 27 6 27H3C1.89543 27 1 26.1046 1 25V20ZM6 20.4C6 20.1791 5.82091 20 5.6 20H3.4C3.17909 20 3 20.1791 3 20.4V24.6C3 24.8209 3.17909 25 3.4 25H5.6C5.82091 25 6 24.8209 6 24.6V20.4Z" className="fill-indigo-600" fillRule="evenodd" />

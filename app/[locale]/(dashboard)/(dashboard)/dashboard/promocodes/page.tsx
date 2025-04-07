@@ -141,7 +141,7 @@ export default function Promocodes() {
                                             <input
                                                 id="username"
                                                 required
-                                                className="hover:outline-slate-400  hover:dark:outline-zinc-700 outline-none outline-1 focus:border-indigo-600 focus:dark:border-indigo-600 bg-white  dark:bg-zinc-900 text-base rounded-xl border-2 text-left border-slate-300 dark:border-zinc-800 p-2 w-full"
+                                                className="hover:outline-slate-400  hover:dark:outline-zinc-700 outline-none outline-1 focus:border-indigo-600 focus:dark:border-indigo-600 bg-white  dark:bg-zinc-900 text-base rounded-xl  text-left p-2 w-full"
                                                 value={promo}
                                                 onChange={(e) => setPromo(e.target.value)}
                                             />
