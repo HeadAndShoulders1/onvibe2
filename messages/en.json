@@ -423,7 +423,7 @@
     "status_moderate": "Contract status: Moderation",
     "status_moderate_detail": "Currently, your application is under review. We kindly ask you to wait for some time while our specialists examine the provided documents. We appreciate your patience and assure you that we will promptly inform you of the results of the review. Thank you for your understanding.",
     "status_accept": "Contract status: Confirmed",
-    "status_accept_detail": "Your operation to fill in the required information and submit the contract was successful. Now you have the opportunity to fully upload fresh materials! Feel free to add new content, share ideas, or update information. We are ready to receive your contribution and look forward to interesting and relevant data from you. Remember, your contribution is valuable for our collective success!"
+    "status_accept_detail": "Your operation of filling in the mandatory information and sending the contract was successful. Your data was used to sign the contract, which can be found here: https://onvibe.fun/license.pdf, only your name and details are changed. You can always request the contract from our support. Now you have the opportunity to fully upload fresh content! Feel free to add new content, share ideas or update information. We are ready to accept your contributions and look forward to interesting and relevant data from you. Remember, your input is valuable to our overall success!"
   },
   "admin_license": {
     "title": "Catalog of contracts",
