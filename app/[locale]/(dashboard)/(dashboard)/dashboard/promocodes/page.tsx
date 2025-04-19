@@ -67,7 +67,7 @@ export default function Promocodes() {
                 {promoinfo ? null : (
                     <>
                         {loading ? null : (
-                            <button onClick={() => setIsOpen(true)} className="flex items-center gap-x-2 bg-[#5351FF] hover:bg-[#5351FF]/80 transition py-2 px-3 rounded-lg invisible lg:visible">
+                            <button onClick={() => setIsOpen(true)} className="flex items-center gap-x-2 bg-[#5351FF] hover:bg-[#5351FF]/80 transition py-2 px-3 rounded-lg ">
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" viewBox="0 0 24 24" fill="none">
                                         <path d="M4 12H20M12 4V20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -151,11 +151,11 @@ export default function Promocodes() {
                                         </div>
                                         <div className="flex w-full justify-end ">
                                             {loading_create ? (
-                                                <button disabled className="flex items-center w-20 justify-center bg-[#5351FF]/80 transition py-2 px-3 rounded-lg invisible lg:visible">
+                                                <button disabled className="flex items-center w-20 justify-center bg-[#5351FF]/80 transition py-2 px-3 rounded-lg">
                                                     <SpinnerLoading />
                                                 </button>
                                             ) : (
-                                                <button onClick={() => create_promocodes()} className="flex items-center bg-[#5351FF] hover:bg-[#5351FF]/80 transition py-2 px-3 rounded-lg invisible lg:visible">
+                                                <button onClick={() => create_promocodes()} className="flex items-center bg-[#5351FF] hover:bg-[#5351FF]/80 transition py-2 px-3 rounded-lg">
                                                     <span className="text-sm font-medium text-white">{t('create_promocodes')}</span>
                                                 </button>
                                             )}

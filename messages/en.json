@@ -931,5 +931,32 @@
     "create_promocodes_description": "Create your promo code so that other users can use it when depositing their balance",
     "already_exists": "A promo code with this name has already been created",
     "short_promocode": "The promo code is too short"
+  },
+  "onvibecup": {
+      "title": "Promocode contest | ONVIBE.FUN",
+      "leader": "Leaders",
+      "prizefund": "Prize fund",
+      "bank": "Bank",
+      "intermediatebank": "Intermediate bank",
+      "participateandwin": "Participate and win!",
+      "desc": "The more people you invite - the higher your chance to get the main prize. Follow the rating, gain points and get to the top 3.",
+      "desc2": "To get started, create a promo code that will be entered when you refill your account. To do this, go to the “promo code” tab",
+      "rules_title": "Contest rules",
+      "end": "Until the end of the contest",
+      "d": "d",
+      "h": "h",
+      "m": "m",
+      "s": "s",
+      "up": "Time's up",
+      "score": "My score",
+      "points": "points",
+      "rule1": "Create your promo code in the Promo Codes section.",
+      "rule2": "Share it with potential customers and ask them to enter it when they recharge.",
+      "rule3": "The top 3 participants will receive a cash prize at the end of the stage.",
+      "rule4": "Keep an eye on the timer and rankings so you don't miss out!",
+      "ok": "Got it",
+      "invited": "People are invited",
+      "desc3": "Earn up to 10,000 rubles and other valuable prizes",
+      "desc4": "ONVIBE is holding a contest where everyone can compete and take the grand prize. Read the details by clicking on the banner."
   }
 }

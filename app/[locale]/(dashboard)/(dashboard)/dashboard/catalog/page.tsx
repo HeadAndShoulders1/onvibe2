@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import ToolTip from "@/components/Tooltip/page";
 import BigSpinnerLoading from "@/components/Spinner/bigspinner";
+import PromoInfo from "@/components/dashboard/bu2y";
 
 interface ReleaseQueryParams {
   name?: string;
@@ -224,7 +225,7 @@ export default function Header() {
       </>
       }
         <span className="text-3xl text-zinc-800 font-bold dark:text-slate-200">{t('catalog_title')}</span>
-        
+        <PromoInfo />
         <div className="flex flex-col lg:items-center gap-2 mt-4 lg:flex-row lg:justify-between ">
           <div className="flex p-2 h-12 bg-[#fff] dark:bg-zinc-900 rounded-2xl  w-full items-center shadow-sm">
             <div className="flex gap-x-2 w-full">
