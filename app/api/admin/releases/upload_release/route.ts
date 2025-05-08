@@ -48,7 +48,7 @@ export async function POST(request: Request) {
                         'path': 'users/auth',
                         'payload': {
                             'user': 'ViktoriaBekicheva',
-                            'pass': 'Lirik887937123$$',
+                            'pass': '30298943Lirik30298943$',
                             'totp': '',
                             'browserFingerprint': 'a04bd837aa9ce6fb0500ca0e92aa6c35',
                             'withException': false,
