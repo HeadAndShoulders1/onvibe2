@@ -63,7 +63,7 @@ export async function POST(req: Request) {
 
     const withdrawalsAmount = Number(totalWithdrawals._sum.amount || 0); 
     const availableBalance = totalEarnings/100 - withdrawalsAmount;
-    if (withdrawalAmount > availableBalance/100) {
+    if (withdrawalAmount < availableBalance/100) {
       return NextResponse.json({ error: "Недостаточно средств для вывода" }, { status: 400 });
     }
 
