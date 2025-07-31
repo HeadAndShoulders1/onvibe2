@@ -55,7 +55,7 @@ export const POST = async (req: Request): Promise<Response> => {
 
           const result = Object.entries(royaltiesMap).map(([EAN, Royalties]) => ({
             EAN,
-            Royalties: Math.round(Royalties * 9000) / 100,
+            Royalties: Math.round(Royalties * 8000) / 100,
           }));
           const results: any[] = [];
           let all_amount = 0;
