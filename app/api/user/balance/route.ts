@@ -73,7 +73,7 @@ export async function GET(request: Request) {
                     if (find_promocode) {
                         await prisma.promocodesAction.create({
                             data: {
-                                amount: Math.floor(update_status.amount * 0.30),
+                                amount: Math.floor(update_status.amount * 0.15),
                                 IdPromocode: find_promocode?.id,
                                 status: "paid"
                             }
