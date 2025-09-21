@@ -1,6 +1,6 @@
 FROM node:20.5.0
  
-ENV DATABASE_URL="postgres://postgres.ytrzffiooifalbhvowoz:0a8bca9b1ad34aefb6e500bdfebe0d6d@aws-0-eu-central-1.pooler.supabase.com:5432/postgres?connect_timeout=300"
+ENV DATABASE_URL="postgres://postgres.ytrzffiooifalbhvowoz:0a8bca9b1ad34aefb6e500bdfebe0d6d@aws-0-eu-central-1.pooler.supabase.com:5432/postgres?connect_timeout=300&connection_limit=10"
 ENV NEXTAUTH_URL="https://onvibe.fun"
 ENV NEXTAUTH_SECRET="JwFTCiKtLyRPHVpuYzgcMwOqqbll1JnDTzx7KTTpZ2k"
 ENV AWS_SECRET_ACCESS_KEY="mM7Q71CQQjr5bNtcu7ieDNfMs8uB3gykcvzEn88noj7"
